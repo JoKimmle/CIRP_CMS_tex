@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Al-Naggar.Jamil.ea2021}
+Y.~M. {Al-Naggar}, N.~Jamil, M.~F. Hassan, A.~R. Yusoff, Condition monitoring based on {{IoT}} for predictive maintenance of {{CNC}} machines, Procedia CIRP 102 (2021) 314--318.
+\newblock \href {https://doi.org/10.1016/j.procir.2021.09.054} {\path{doi:10.1016/j.procir.2021.09.054}}.
+
+\bibitem{Axinte.Gindy2004a}
+D.~Axinte, N.~Gindy, Assessment of the effectiveness of a spindle power signal for tool condition monitoring in machining processes, International Journal of Production Research 42~(13) (2004) 2679--2691.
+\newblock \href {https://doi.org/10.1080/00207540410001671642} {\path{doi:10.1080/00207540410001671642}}.
+
+\bibitem{Ma.Howard.ea2020}
+L.~Ma, I.~Howard, M.~Pang, Z.~Wang, S.~Jianxiu, Experimental {{Investigation}} of {{Cutting Vibration}} during {{Micro-End-Milling}} of the {{Straight Groove}}, Micromachines 11 (2020) 494.
+\newblock \href {https://doi.org/10.3390/mi11050494} {\path{doi:10.3390/mi11050494}}.
+
+\bibitem{Biermann.Zabel.ea2013}
+D.~Biermann, A.~Zabel, T.~Br{\"u}ggemann, A.~Barthelmey, A {{Comparison}} of {{Low Cost Structure-borne Sound Measurement}} and {{Acceleration Measurement}} for {{Detection}} of {{Workpiece Vibrations}} in 5-axis {{Simultaneous Machining}}, Procedia CIRP 12 (2013) 91--96.
+\newblock \href {https://doi.org/10.1016/j.procir.2013.09.017} {\path{doi:10.1016/j.procir.2013.09.017}}.
+
+\bibitem{Chen.Lin2017}
+T.~Chen, Y.-C. Lin, Feasibility {{Evaluation}} and {{Optimization}} of a {{Smart Manufacturing System Based}} on {{3D Printing}}: {{A Review}}, International Journal of Intelligent Systems 32~(4) (2017) 394--413.
+\newblock \href {https://doi.org/10.1002/int.21866} {\path{doi:10.1002/int.21866}}.
+
+\end{thebibliography}
