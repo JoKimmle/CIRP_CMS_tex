@@ -19,6 +19,18 @@
 %\usepackage{natbib}                 %natbib.  -nope!
 %\bibliographystyle{unsrtnat}        %unsrtnat -nope!
 
+% Jo color definition:
+\usepackage{xcolor}
+\definecolor{notecolor}{rgb}{0.16, 0.67, 0.53}
+
+% JO note environment:
+\newenvironment{note}{%
+	\noindent
+    \color{notecolor}%
+}{%
+    \par\medskip%
+}
+
 
 %% set the volume if you know. Otherwise `00'
 \volume{00}
@@ -81,6 +93,8 @@
 \begin{document}
 \begin{frontmatter}
 
+
+
 %% Title, authors and addresses
 
 %% use the tnoteref command within \title for footnotes;
@@ -102,7 +116,7 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\dochead{57th CIRP Conference on Manufacturing Systems 2024 (CMS 2024)}%
+\dochead{57th CIRP Conference on Manufacturing Systems 2024 (CMS 2024)}
 
 \title{Digital Twin Based Online Material Defect Detection for CNC-Milled Workpieces}
 
@@ -114,12 +128,13 @@
 
 
 \author[a,b]{First Author} 
-\author[a]{Second Author\corref{cor1}}%$\ast$}}
+\author[a,c]{Second Author\corref{cor1}}%$\ast$}}
 \author[b]{Third Author}
 %\ead{author@institute.xxx}
 
-\address[a]{Hochschule Reutlingen, ESB Business School, Alteburgstraße 150, 72762 Reutlingen, Germany}
+\address[a]{ESB Business School, Reutlingen University, Alteburgstra\ss e 150, 72762 Reutlingen, Germany}
 \address[b]{Department of Industrial Engineering, Stellenbosch University, Joubert Street, Stellenbosch, 7600, South Africa}
+\address[c]{Fraunhofer Institute for Manufacturing Engineering and Automation IPA, Nobelstra\ss e 12, 70569 Stuttgart, Germany}
 
 \aucores{* Corresponding author. Tel.: +49-7121-271-5005; fax: +49-7121-271-90-5005. E-mail address: dominik.lucke@reutlingen-university.de}
 
@@ -129,7 +144,7 @@ To address this challenge, our approach aims to bridge the current gap in resear
 \end{abstract}
 
 \begin{keyword}
-Type your keywords here, separated by semicolons ; 
+Monitoring \sep Machining \sep Material defects \sep Vibrations \sep Lot size one
 
 %% keywords here, in the form: keyword \sep keyword
 
@@ -149,39 +164,87 @@ Type your keywords here, separated by semicolons ;
 \section{Introduction}\label{Sec_Introduction}
 
 
-\vspace*{8pt}
+The manufacturing industry is undergoing a paradigm shift, transitioning from a focus on 'responsiveness' to a 'market-of-one', deemed 'Mass Individualisation' \cite{Lu.Xu.ea2020} or 'Mass Personalisation' \cite{Qin.Lu2021}. This entails the production of custom-made products while maintaining the low unit costs traditionally associated with mass production.
+In response, there has been a global push towards smart manufacturing characterized by autonomous operations enabled by advanced sensing, data processing, and decision-making technologies. \cite{Gu.Koren2022, Lu.Morris.ea2016}.
+
+%While Additive Manufacturing (AM) can counter some of this challenges it is inferior to traditional Numerical Controlled machine tools (CNCs) such as milling machines concerning Dimensional accuracy, limited types of usable material, or low productivity. \cite{Chen.Lin2017,zotero-232,zotero-236} Hence, CNC processes will remain pivotal in manufacturing environments, offering great potential for optimisation due to their widespread adoption.  
+
+Within this context, reducing lot sizes in job shop settings becomes imperative, and additive manufacturing (AM), particularly 3D printing, emerges as a promising solution due to its autonomy and versatility.
+However, despite its advantages, AM still falls short compared to traditional techniques like CNC milling in aspects such as dimensional accuracy, mechanical properties, material variety, and surface quality \cite{Chen.Lin2017,zotero-232,zotero-236}.
+CNC milling, therefore, remain pivotal, presenting not only significant potential but also high necessity for optimisation due to its complex nature of underlying processes that result in lower process resilience and robustness compared to AM.
+
+%\vspace*{8pt}
 \begin{nomenclature}
-\begin{deflist}[A]
-\defitem{A}\defterm{radius of}
-\defitem{B}\defterm{position of}
-\defitem{C}\defterm{further nomenclature continues down the page inside the text box}
+\begin{deflist}[AAA]%number of letters
+\defitem{CNC}\defterm{Computerised Numerical Controled (machine tool}
+\defitem{AM}\defterm{Additive Manufacturing}
+\defitem{CCC}\defterm{...}
 \end{deflist}
-\end{nomenclature}\vskip24pt
+\end{nomenclature}%\vskip24pt
 
-\subsection{Structure}
+%idea:
+%\begin{note}
+%	- monitoring system to make make cnc machines more resilient and robust in a lot size one production scenario\\
+%	- focussing on workpiece monitoring, specifically material defects and user error (at setup, like wrong wrong part material, or part clamping error)
+%\end{note}
 
-%=====================================================================
-\section{Introduction}\label{Sec_Introduction}
- Moti(erste seite)
+%\subsection{Technical and economic demand}
+A monitoring system that utilises deep process context (e.g. technological, geometric, or material property data) to generate reference agnostic (= lot size one capable) process status insights, would ready CNC mills for the Mass Personlisation paradigm shift.
+
+Such a workpiece centered monitoring system which detects material defects or user (=operator) error (e.g. wrong wrong material, or part clamping error) during normal machining can increase process efficiency \& reliablity, reduces waste, and enables higher product quality.  
+
+To achieve economic efficiency and general market accessibility such a system must be easy to integrate, be machine agnostic, and be relatively low cost.
+
  
 %=====================================================================
 \section{Related work}
-(state of the art) (1,5seiten)
+\begin{note}
+	state of the art (1,5seiten)
+
+\end{note}
+
+
+Most monitoring systems focus on tool wear or machine maintenance, holistic process specific monitoring especially of the workpiece is rarely employed on todays shop floors or in current research. The only availabe enterprise monitoring product for workpiece and process monitoring is the Qass. 
+
+
+
+
+
 
 %=====================================================================
 \section{Aproach}
-(vorgehen + prinzipielle aufbau/Konzept)
+\begin{note}
+	(vorgehen + prinzipielle aufbau/Konzept)\\
+	- welche physikalische grösse? vibration\\
+	- kontext architektur (feature)\\
+	- schaubild design\\
+	
+\end{note}
+
+
+
 
 %=====================================================================
 \section{Implementation}
-(in python, auf emco, DoE...)
+
+\begin{note}
+- full design from Aproach transform to proof of concept\\
+- in python, auf emco, DoE...\\
+- experimental setup	
+\end{note}
 
 %=====================================================================
 \section{Validation}
+\begin{note}
+	...and evaluation
 
+\end{note}
 %=====================================================================
 \section{Conclusion}
-and futere recommendation (halbe seite)
+\begin{note}
+	and futere recommendation (halbe seite)
+	
+\end{note}
 
 
 
@@ -190,7 +253,7 @@ and futere recommendation (halbe seite)
 
 Zitiertest...
 
-\cite{Al-Naggar.Jamil.ea2021}
+\cite{Al-Naggar.Jamil.ea2021,Axinte.Gindy2004a,Ma.Howard.ea2020}
 
 \cite{Axinte.Gindy2004a}
 
