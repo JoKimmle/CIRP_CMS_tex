@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.6.12)  25 FEB 2024 17:18
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.6.12)  26 FEB 2024 00:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,36 +781,31 @@ File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Calculating math sizes for size <9.09996> on input line 159.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
-
- []
-
-
-Underfull \hbox (badness 10000) detected at line 185
+Underfull \hbox (badness 10000) detected at line 179
 \TU/txr/b/n/10 CNC 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 186
+Underfull \hbox (badness 10000) detected at line 180
 \TU/txr/b/n/10 AM 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 187
+Underfull \hbox (badness 10000) detected at line 181
 \TU/txr/b/n/10 CCC 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5622) has occurred while \output is active []
 
 File: elsevier-logo-5p.pdf Graphic file (type pdf)
 <use elsevier-logo-5p.pdf>
-LaTeX Font Info:    Trying to load font information for TU+txss on input line 199.
-LaTeX Font Info:    No file TUtxss.fd. on input line 199.
+LaTeX Font Info:    Trying to load font information for TU+txss on input line 193.
+LaTeX Font Info:    No file TUtxss.fd. on input line 193.
 
 
 LaTeX Font Warning: Font shape `TU/txss/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 199.
+(Font)              using `TU/lmr/m/n' instead on input line 193.
 
 File: SDlogo-5p.pdf Graphic file (type pdf)
 <use SDlogo-5p.pdf>
@@ -837,10 +832,12 @@ Overfull \vbox (35.712pt too high) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 202--207
+Underfull \hbox (badness 10000) in paragraph at lines 216--221
 
  []
 
+File: ConceptDiagram.pdf Graphic file (type pdf)
+<use ConceptDiagram.pdf>
 (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.bbl
 LaTeX Font Info:    Trying to load font information for TU+cmtt on input line 10.
 LaTeX Font Info:    No file TUcmtt.fd. on input line 10.
@@ -854,18 +851,18 @@ Underfull \hbox (badness 1990) in paragraph at lines 13--15
 []\TU/cmtt/m/n/8 Z. Qin, Y. Lu, Self-organizing manufacturing network: A
  []
 
-) [2] (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.aux)
+) [2] [3] (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 11963 strings out of 476683
- 183470 string characters out of 5804047
- 1869018 words of memory out of 5000000
- 32012 multiletter control sequences out of 15000+600000
+ 11979 strings out of 476683
+ 183829 string characters out of 5804047
+ 1871018 words of memory out of 5000000
+ 32027 multiletter control sequences out of 15000+600000
  546215 words of font info for 143 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,14n,76p,901b,357s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,14n,76p,901b,363s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.pdf (2 pages).
+Output written on /Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.pdf (3 pages).
