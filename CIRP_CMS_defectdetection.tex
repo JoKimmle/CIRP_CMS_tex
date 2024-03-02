@@ -47,7 +47,7 @@
 
 %% Give the author list to appear in the running head
 %% Example \runauth{C.V. Radhakrishnan et al.}
-\runauth{Author name}
+\runauth{Johannes Kimmle et al.}
 
 %% The choice of journal logo is determined by the \jid and \jnltitlelogo commands.
 %% A user-supplied logo with the name <\jid>logo.pdf will be inserted if present.
@@ -140,10 +140,10 @@
 \address[b]{Department of Industrial Engineering, Stellenbosch University, Joubert Street, Stellenbosch, 7600, South Africa}
 \address[c]{Fraunhofer Institute for Manufacturing Engineering and Automation IPA, Nobelstra\ss e 12, 70569 Stuttgart, Germany}
 
-\aucores{* Corresponding author. Tel.: +49-7121-271-5005; fax: +49-7121-271-90-5005. E-mail address: dominik.lucke@reutlingen-university.de}
+\aucores{* Corresponding author. Tel.: +49-7121-271-5005; fax: +49-7121-271-90-5005; E-mail address: dominik.lucke@reutlingen-university.de}
 
 \begin{abstract}
-Achieving reliable lot size one compatible and adaptable online quality monitoring for CNC-milled workpieces remains elusive yet.
+Reliable lot-size-one compatible online quality monitoring for CNC machined parts remains elusive.
 To address this challenge, our approach aims to bridge the current gap in research by developing a cost-effective and reference-independent monitoring concept for material defect detection in CNC-machined parts. This paper presents a novel digital twin-based method, utilising machining vibrations and a g-code-based encoding of the cutting process. The objective is to detect material defects, such as blowholes, without the need for individual workpiece references. The proposed method aims to reduce barriers to entry, minimise waste, and enhance machine productivity by enabling automated early online quality control. To develop and validate the model, we generate a new dataset combining machining vibration with technological context data such as chip-shape. We demonstrate the feasibility and potential of the approach in a job shop setting on a 3-axis CNC mill.
 \end{abstract}
 
@@ -159,8 +159,7 @@ To address this challenge, our approach aims to bridge the current gap in resear
 %% MSC codes here, in the form: \MSC code \sep code
 %% or \MSC[2008] code \sep code (2000 is the default)
 
-\end{keyword}
-\cortext[cor1]{Corresponding author. Tel.: +49-7121-271-5005; fax: +49-7121-271-90-5005. E-mail address: dominik.lucke@reutlingen-university.de}
+\end{keyword}\cortext[cor1]{Corresponding author. Tel.: +49-7121-271-5005; fax: +49-7121-271-90-5005; E-mail address: dominik.lucke@reutlingen-university.de}
 
 \end{frontmatter}
 
@@ -170,8 +169,8 @@ To address this challenge, our approach aims to bridge the current gap in resear
 \section{Introduction}\label{Sec_Introduction}
 
 
-The manufacturing industry is undergoing a paradigm shift, transitioning from a focus on 'responsiveness' to a 'market-of-one', deemed 'Mass Individualisation' \cite{Lu.Xu.ea2020} or 'Mass Personalisation' \cite{Qin.Lu2021}. This entails the production of custom-made products while maintaining the low unit costs traditionally associated with mass production.
-In response, there has been a global push towards smart manufacturing characterized by autonomous operations enabled by advanced sensing, data processing, and decision-making technologies. \cite{Gu.Koren2022, Lu.Morris.ea2016}.
+The manufacturing industry is undergoing a paradigm shift, transitioning from a focus on \textit{responsiveness} to a \textit{market-of-one}, deemed \textit{Mass Individualisation} \cite{Lu.Xu.ea2020} or \textit{Mass Personalisation} \cite{Qin.Lu2021}. This entails the production of custom-made products while maintaining the low unit costs traditionally associated with mass production.
+In response, there has been a global push towards smart manufacturing characterized by autonomous operations enabled by advanced sensing, data processing, and decision-making technologies. \cite{Gu.Koren2022, Lu.Morris.ea2016}
 
 %While Additive Manufacturing (AM) can counter some of these challenges it is inferior to traditional Numerical Controlled machine tools (CNCs) such as milling machines concerning Dimensional accuracy, limited types of usable material, or low productivity. \cite{Chen.Lin2017,zotero-232,zotero-236} Hence, CNC processes will remain pivotal in manufacturing environments, offering great potential for optimisation due to their widespread adoption.  
 
@@ -180,6 +179,7 @@ However, despite its advantages, AM still falls short compared to traditional te
 CNC milling, therefore, remains pivotal, presenting not only significant potential but also high necessity for optimisation due to its complex nature of underlying processes that result in lower process resilience and robustness compared to AM.
 
 %\vspace*{8pt}
+%\vspace*{-\baselineskip}
 \begin{nomenclature}
 \begin{deflist}[AAA]%number of letters
 \defitem{CNC}\defterm{Computerised Numerical Controled (machine tool)}
@@ -197,17 +197,24 @@ CNC milling, therefore, remains pivotal, presenting not only significant potenti
 %\subsection{Technical and economic demand}
 A monitoring system that utilises deep process context (e.g. technological, geometric, or material property data) to generate reference agnostic (= lot size one capable) process status insights, would ready CNC mills for the Mass Personalisation paradigm shift.
 
-Such a workpiece-centered monitoring system which detects material defects or user (=operator) error (e.g. wrong material, or part clamping error) during normal machining can increase process efficiency \& reliability, reduce waste, and enable higher product quality.  
+Such a workpiece-centred monitoring system, which detects material defects or user (=operator) errors (e.g. wrong material, or part clamping errors) during normal machining, can increase process efficiency \& reliability, reduce waste, and enable higher product quality.  
 
-To achieve economic efficiency and general market accessibility such a system must be easy to integrate, be machine agnostic, and be relatively low cost.
+To achieve economic efficiency and general market accessibility, this system must be easy to integrate, machine-agnostic, and relatively low-cost.
+
+\vspace*{.5\baselineskip}
+\noindent Requirements: workpiece quality monitoring system that is: 
+\vspace*{-\baselineskip}
+\begin{itemize}
+	\item lot size one capable
+	\item machine agnostic
+	\item easy to integrate
+	\item cost effective
+\end{itemize}
 
  
 %=====================================================================
-\section{Related work}
-\begin{note}
-	state of the art (1,5seiten)
+\section{Related work}\label{Sec_RelatedWork}
 
-\end{note}
 
 %Machine tool and machine tool control munafacturers integrate all kind of monitoring capabilities in their products. Modern CNC mills are usually factory-fitted with spindle and axis drive energy meters where spindle tourque and axis resistance can be estimated from.
 
@@ -216,12 +223,12 @@ To achieve economic efficiency and general market accessibility such a system mu
 
 %Almost exclusively CNC monitoring is focused on tool condition monitoring (especially tool wear and breakage), surface finish quality (including chatter), and machine health monitoring (within the scope of predictive maintenance) .
 Predominantly, CNC monitoring is focused on tool condition monitoring, particularly detecting tool wear and breakage, ensuring surface finish quality, including mitigating chatter, and monitoring machine health for predictive maintenance purposes \cite[p.2727]{Kuntoglu.Salur.ea2021}.
+The following sensors are in use for CNC monitoring and are rated by investment cost and information value (see: Table \ref{Tab_Sensors}).
+\vspace*{-.5\baselineskip}
 
-The following sensors are used and listed with their general purpose below:
-Table \ref{Tab_Sensors} lists employed sensors and rates them by investment cost and by information value.
 
 \begin{table}[h]
-\caption{Sensors according to signals and properties\cite[according to][p.2725]{Kuntoglu.Salur.ea2021}}
+\caption{Sensors according to signals and properties \cite[according to][p.2725]{Kuntoglu.Salur.ea2021}}
 \label{Tab_Sensors}
 \begin{tabular*}{\hsize}{@{\extracolsep{\fill}}lll@{}}
 \toprule
@@ -237,22 +244,48 @@ Sound          & $\bullet$\hspace{.5mm}      & $\bullet$\hspace{.5mm}  \\
 \end{tabular*}
 \end{table}
 
+\vspace*{-.5\baselineskip}
+Dynamometers commonly utilise all six spatial axes (three translatory and three rotatory) to capture force profiles at high sampling rates, with higher rates correlating with increased cost.
+Vibrations measured by accelerometers refer to the oscillatory motion of an object or system around an equilibrium position ($f_{acc}$ $\lesssim$ 10 kHz).
+AE refers specifically to the release of stress waves or energy due to internal changes or deformation within a material. AE is difficult to measure in lower frequencies. Usual frequencies are: 20 kHz $\lesssim$ $f_{AE}$ $\lesssim$ 500 kHz. \cite{Jozwik.Mika2015, Sun.Hu.ea2020}
 
-\vspace*{-\baselineskip}
-\subsection{Related scientific work}
+Current/power is measured from the drive unit of the spindle (and translates ruffly into spindle tourque) and is therefore extremely cost effective.
+Temperature, mostly measured via thermal imaging cameras, lack high sample rates (due to low frame rates), and suffer from delays and perspective obstacles. 
+
+
+
+\subsection{Similar monitoring solutions}
 \vspace*{-\baselineskip}
 
 
 \href{https://www.matta.ai/greymatta}{Matta's Grey-1 model} as shown in their paper \cite{Brion.Pattinson2022} demonstrates AM process monitoring on fused layer deposit 3D printers, based on an automated deep process understanding. 
-They trained a multi head transformer model on labeled images, such as: extrusion speed, layer thickness and hotend temperature. They are able to detect extrusions errors (which translate in to material defects), or adjust printing parameters fully autonomously for unseen material.\cite{Brion.Pattinson2022}
-
+They trained a multi head transformer model on labeled images; labels such as: extrusion speed, layer thickness and hotend temperature. They are able to detect extrusions errors (which translate into material defects), or adjust printing parameters fully autonomously for unseen material. \cite{Brion.Pattinson2022}
 This study serves as a substantial inspiration and influence for the present work.
 
 
-Another notable study \cite{Pfirrmann.Baumann.ea2021} investigates the cutting forces measured by a (6-axis) dynamometer in micromanufactuirng of Ti6246 alloy by comparing them with theoretical calculted forces, to detect material defects such as blow holes.
-This aproach is in theory lot size one capable because the force measurement is not compared to one of a part prior, but is rather based on experimental measurements and a geometric physically-based process simulation. It is concluded that the accuracy of the calculated force and the insufficient change of amplitude while machining a defect were to low to achieve automated detection. \cite[p.169]{Pfirrmann.Baumann.ea2021} 
+Another noteworthy study \cite{Pfirrmann.Baumann.ea2021} investigates the cutting forces measured by a (6-axis) dynamometer in the micromanufacturing of Ti6246 alloy by comparing them with theoretically calculated forces, to detect material defects such as blowholes.
+This approach is in theory lot size one capable because the force measurement is not compared to a previsouly manufacured 1:1 reference, but rather is based on experimental measurements and a geometric physics-based process simulation. 
+It is concluded that the accuracy of the calculated force and the insufficient change in amplitude between normal and defect machining are too low to achieve automated detection. \cite[p.169]{Pfirrmann.Baumann.ea2021} 
 
-While dynameter force measurements offer greatest signal accuracy and information value due to their direct measurement methode and process proximity \cite[]{Korkmaz.Yasar.ea2020}, they are the most expensive ($\sim 60.000$\euro) and usualy difficult to setup and not feasable for production envirnoments.
+While dynamometer force measurements offer the highest signal accuracy and information value due to their direct measurement method and process proximity \cite[]{Korkmaz.Yasar.ea2020}, they are expensive (multiple 10s of thousands of euros), difficult to set up, and usually not feasible for production environments (see Table \ref{Tab_Sensors}).
+
+Qass's Optimizer 4D, an off-the-shelf AE-based general-purpose inspection system, addresses the problems of dynamometers described above, at the cost of reduced signal accuracy. The system is still expensive, but it comes with out-of-the-box spectral pattern recognition, which enables reference-dependent material defect detection, thus is not lot size one capable. \cite[p.5]{Szulewski.Sniegulska-Gradzka2017}
+
+\vspace*{.5\baselineskip}
+\noindent Research gap:\label{gap}
+\vspace*{-\baselineskip}
+\begin{itemize}
+	\item research in online CNC workpiece quality monitoring remains relatively underexplored
+	\item material defect detection represents a particular under-researched subfield
+	\item only a single paper has been identified thus far that addresses reference-independent defect monitoring within this domain
+\end{itemize}
+
+\subsection{ML usage in CNC monitoring}
+\vspace*{-\baselineskip}
+- DBN (deep belieef network) feature reduction/extraction
+
+- SVM (support vector machine) classification
+
 
 
 
@@ -264,7 +297,13 @@ Sensor products employed in research:
 - multi axis Force Dynanometers by Kistler; most direct process monitoring (most powerful); material defects monitoring in micro milling Ti(Pfirrmann.Baumann.ea2021)
 
 - Contact Microphone (Gitarrenabnehmer) for chatter detection
+
+- ML: was machen andere paper mit ml, allgemein timeseries analysis...
+
+optional: --> research gap
 \end{note}
+
+
 
 
 
@@ -272,26 +311,69 @@ Sensor products employed in research:
 
 
 %=====================================================================
-\section{Aproach}
-\begin{note}
-	(vorgehen + prinzipielle aufbau/Konzept)\\
-	- welche physikalische grösse? vibration\\
-	- kontext architektur (feature)\\
-	- schaubild design\\
-	
-\end{note}
+\section{Aproach}\label{Sec_Aproach}
+The general aproach to fullfill the requirements from Section \ref{Sec_Introduction} in the scope of the research gap concluded in Section \ref{Sec_RelatedWork}, is to use cost effective sensors that are easy to retro fit and don't disturb machining, and to contextualise sensor data with machining-specific information, to enable effective lot-size one monitoring.
+
+
+\subsection{Physical quanitity to monitor}
+\vspace*{-\baselineskip}
+Vibrations measured via accelerometers or Acoustic Emission (AE) sensors form a great compromise between ease of installation \& cost, and signal accuracy \& information value. While Dynamometers entail greater information value, their high cost and poor mountability don't make them viable for general monitoring. Other options such as "current/power" "temperature" or "sound" hold lower information value and are therefore not considered.
+Additionaly are the relatively easy 
+
+The easily and cheaply achievable high sampling rates of vibration measuremnts are an enormous advantage when zooming in and analysing each cutting event (cutting edge engagement). As the paper \cite{Pfirrmann.Baumann.ea2021} shows that especially smaller/micro material defects affect machining forces for just a few edge engagements, lasting in total a few microseconds.
+
+
+\subsection{Machining-context features}
+\vspace*{-\baselineskip}
+(context architecture)
+- process descriptive parameter
+
+
+---
+
+welche größen nehmen einfluss auf den schneidprozess?
+
+wie kann der der prozess möglichst allgemeingültig beschrieben werden? -möglichst prozess beschreibende parameter
+
+wie können diese parameter möglichst unabhängig von einander dargestellt werden? (-> dimensionslos), als Koefizient darstellen
+
+---
+
+Key aspect of our aproach is to substitute a 1:1 reference of the same part manufactured prior, by general machining and cutting conditions and circumstances for each time in the manufacturing process, we call this data: context.
+To design our context features, we followed 3 questions.
+
+\vspace*{-.5\baselineskip}
+\subsubsection{What factors influence the cutting process?}
+blub
+
+\vspace*{-.5\baselineskip}
+\subsubsection{How can the process be described as universally as possible by these factors?}
+blub
+
+\vspace*{-.5\baselineskip}
+\subsubsection{How can these factors be modelled as mathematically independent (non-dimensional) coefficients?} 
+blub
 
 
 
 
-%=====================================================================
-\section{Implementation}
 
-\begin{note}
-- full design from approach transform to proof of concept\\
-- in python, auf emco, DoE...\\
-- experimental setup	
-\end{note}
+\subsection{Concept architecture}
+\vspace*{-\baselineskip}
+- concept diagram Figure \ref{Fig_ConceptDiagram}
+
+- center: CNC
+- conventional procedure
+- grey, the four monitoring procedures, explain them
+- legend: process step, exchanged information
+
+
+\subsection{ML architecture ???}
+\vspace*{-\baselineskip}
+hhh
+- diagram mit high level ML (konzeptionell)
+
+
 
 \begin{figure*}[t]
     \centering
@@ -300,6 +382,31 @@ Sensor products employed in research:
     \label{Fig_ConceptDiagram}
 \end{figure*}
  
+%=====================================================================
+\section{Implementation}
+\subsection{Proof of concept}
+\vspace*{-\baselineskip}
+from full design concept to simplified proof of concept.
+DoE,  
+
+welche context feature können heraus vereinfacht werden? - Maschinentyp=1, Werkstoff=1 ...
+
+
+
+\subsection{Dataset design}
+\vspace*{-\baselineskip}
+Datensatz dimension und umfang
+
+\subsection{Experiment pipeline}
+\vspace*{-\baselineskip}
+hhh
+
+\subsection{Experiment setup}
+\vspace*{-\baselineskip}
+DoE -> static gocode lines (drawing) 
+in python, auf emco, ...
+
+
  
 %=====================================================================
 \section{Validation}
@@ -317,19 +424,6 @@ Sensor products employed in research:
 
 
 
-
-
-Zitiertest...
-
-\cite{Al-Naggar.Jamil.ea2021,Axinte.Gindy2004a,Ma.Howard.ea2020}
-
-\cite{Axinte.Gindy2004a}
-
-\cite{Ma.Howard.ea2020}
-
-\cite{Biermann.Zabel.ea2013}
-
-\cite{Chen.Lin2017}
 
 %=====================================================================
 %=====================================================================
