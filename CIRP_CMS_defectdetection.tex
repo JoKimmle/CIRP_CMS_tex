@@ -31,8 +31,10 @@
     \par\medskip%
 }
 
-\usepackage{eurosym}
 
+\usepackage{siunitx} %SI-units
+\usepackage{eurosym} %euro symbol
+%\usepackage{hyperref}
 
 
 
@@ -202,7 +204,7 @@ Such a workpiece-centred monitoring system, which detects material defects or us
 To achieve economic efficiency and general market accessibility, this system must be easy to integrate, machine-agnostic, and relatively low-cost.
 
 \vspace*{.5\baselineskip}
-\noindent Requirements: workpiece quality monitoring system that is: 
+\noindent Requirements conclusion: workpiece quality monitoring system that is: 
 \vspace*{-\baselineskip}
 \begin{itemize}
 	\item lot size one capable
@@ -228,6 +230,7 @@ The following sensors are in use for CNC monitoring and are rated by investment 
 
 
 \begin{table}[h]
+\footnotesize	
 \caption{Sensors according to signals and properties \cite[according to][p.2725]{Kuntoglu.Salur.ea2021}}
 \label{Tab_Sensors}
 \begin{tabular*}{\hsize}{@{\extracolsep{\fill}}lll@{}}
@@ -272,7 +275,7 @@ While dynamometer force measurements offer the highest signal accuracy and infor
 Qass's Optimizer 4D, an off-the-shelf AE-based general-purpose inspection system, addresses the problems of dynamometers described above, at the cost of reduced signal accuracy. The system is still expensive, but it comes with out-of-the-box spectral pattern recognition, which enables reference-dependent material defect detection, thus is not lot size one capable. \cite[p.5]{Szulewski.Sniegulska-Gradzka2017}
 
 \vspace*{.5\baselineskip}
-\noindent Research gap:\label{gap}
+\noindent Research gap conclusion:\label{gap}
 \vspace*{-\baselineskip}
 \begin{itemize}
 	\item research in online CNC workpiece quality monitoring remains relatively underexplored
@@ -282,23 +285,16 @@ Qass's Optimizer 4D, an off-the-shelf AE-based general-purpose inspection system
 
 \subsection{ML usage in CNC monitoring}
 \vspace*{-\baselineskip}
-- DBN (deep belieef network) feature reduction/extraction
-
-- SVM (support vector machine) classification
 
 
 
 
 \begin{note}
-Sensor products employed in research:
+ML: was machen andere paper mit ml, allgemein timeseries analysis...
 
-- Acoustic Emission via Optimizer 4D by Quass; powerful AE monitoring employed in tool condition monitoring and tested (sci) on chatter detection (Szulewski.Sniegulska-Gradzka2017)
+- DBN (deep belieef network) feature reduction/extraction
 
-- multi axis Force Dynanometers by Kistler; most direct process monitoring (most powerful); material defects monitoring in micro milling Ti(Pfirrmann.Baumann.ea2021)
-
-- Contact Microphone (Gitarrenabnehmer) for chatter detection
-
-- ML: was machen andere paper mit ml, allgemein timeseries analysis...
+- SVM (support vector machine) classification
 
 optional: --> research gap
 \end{note}
@@ -322,37 +318,54 @@ Additionaly are the relatively easy
 
 The easily and cheaply achievable high sampling rates of vibration measuremnts are an enormous advantage when zooming in and analysing each cutting event (cutting edge engagement). As the paper \cite{Pfirrmann.Baumann.ea2021} shows that especially smaller/micro material defects affect machining forces for just a few edge engagements, lasting in total a few microseconds.
 
-
 \subsection{Machining-context features}
 \vspace*{-\baselineskip}
-(context architecture)
-- process descriptive parameter
 
-
----
-
-welche größen nehmen einfluss auf den schneidprozess?
-
-wie kann der der prozess möglichst allgemeingültig beschrieben werden? -möglichst prozess beschreibende parameter
-
-wie können diese parameter möglichst unabhängig von einander dargestellt werden? (-> dimensionslos), als Koefizient darstellen
-
----
-
-Key aspect of our aproach is to substitute a 1:1 reference of the same part manufactured prior, by general machining and cutting conditions and circumstances for each time in the manufacturing process, we call this data: context.
-To design our context features, we followed 3 questions.
+Key aspect of our aproach is to substitute a 1:1 reference of the same part manufactured prior, by general machining and cutting conditions and circumstances for each point in time in the manufacturing process, we call this data: context.
+To design our context features, we came up with 3 questions.
 
 \vspace*{-.5\baselineskip}
-\subsubsection{What factors influence the cutting process?}
-blub
+\begin{enumerate}
+	\item \textit{What factors influence the cutting process?}
+	\vspace*{-\baselineskip}
+	\begin{itemize}
+		\item workpiece -geometry, -clamping, -material characterstics (e.g. e-module)
+		\item tool -type (shape), -coating (surface), -cutting fluid
+		\item machine -kinemantics, -stiffness, -sub componenent noise
+		\item cutting process on chip level (e.g. rake angle)
+		\item generall milling process (e.g. cutting speed: $v_c$)
+		\item others: temperature, chip extraction, direction, etc.
+	\end{itemize}	
+	\vspace*{-\baselineskip}
+	The above factors affect the cutting process, some directly by influencing the load on the material being removed, ultimately resulting in a change in the virbation pattern. Others affect the process indirectly through resonance, e.g. slender workpiece geometries are excited at their natural frequency.
+	
+	\vspace*{.5\baselineskip}
+	\item \textit{How can the process be described as universally as possible by these factors?}\\
+	Some factors can't be generalised, or are not feasable to do so. Those factors stay as static features that need specific learning later.
+	Incomprhesible features e.g. "specific machine" can't be generalised because of their complex nature, therefore each machine needs custom learning.
+	Other features are not feasable to generalize because they would make the medel too complex: e.g. material characterisitcs can be explained by more general features such as hardness, tensile strength, etc. Due to the high number of material features, we decided to custom train each material.
+	We have identified the following static features on which later learning is based:
+	material, machine, clamping/fixture, tool type, and cutting fluid.
+	
+	Factors that are generalisable - where comprehensible and detachable features with general predication can be derived from - are prefered and form the backbone of deep process insights. E.g. cutting speed $v_c$, is machine, material and tool independent while having substential influence on the cutting process, ultimatly influencing sensor signal patterns.
+	
+	Factors that require specifc sensors in order to be captured, such as temperature, are excluded from the model to keep complexity manageable.
+	
+	\vspace*{.5\baselineskip}
+	\item\label{Q3} \textit{How can these factors be modelled as mathematically independent (uncoupled, lower-dimensional) coefficients?}\\
+	To achieve high quality training data interdependence or correlation among features is to be avoided.
+	Most classical technological paramters are interdependent: e.g. infeed $a_p [mm]$ is dependent on tool diamter $d [mm]$, that means by changing the tool to a bigger diameter, the ratio from $a_p$ and $d$ changes. To fix this $a_p$ needs dimensional reduction: from $a_p [mm]$ to $a_p / d [\%]$ removing the interdependence of $d$. Feed rate $f$ is dependent on cutting speed $v_c$ and tool diameter $d$. Uncoupled $f$ translates into feed rate per tooth $f_z$.
+	
+	We found the following independent coeffiecients:
+	tool diameter $d$, cutting speed $v_c$, infeed percent $a_{p\%}$, cutting depth $a_e$, tool edge number $z$, direction, milling mode (climb or up-cut), 
+	
+	Additional features are modelled to better describe the cutting context such as: contact arc (angle of attack where tool is in contact with workpiece), arc direction (direction vector of contact arc), chip volume
+	
+	Not all the considered factors can be fully modelled, so there is always some loss of information.
+	Whether the remaining information is sufficient to model the cutting context is analysed in our proof-of-concept implementation.
+\end{enumerate}
 
-\vspace*{-.5\baselineskip}
-\subsubsection{How can the process be described as universally as possible by these factors?}
-blub
-
-\vspace*{-.5\baselineskip}
-\subsubsection{How can these factors be modelled as mathematically independent (non-dimensional) coefficients?} 
-blub
+The final features that describe cutting context are a mix of static features concluded in question 2 (e.g. material) and independent coefficients (e.g. feed rate per tooth) as well as additionally modeled features (e.g. contact arc) from question 3.
 
 
 
@@ -366,6 +379,11 @@ blub
 - conventional procedure
 - grey, the four monitoring procedures, explain them
 - legend: process step, exchanged information
+
+
+---
+
+
 
 
 \subsection{ML architecture ???}

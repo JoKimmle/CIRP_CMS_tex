@@ -30,20 +30,32 @@ T.~Chen, Y.-C. Lin, Feasibility {{Evaluation}} and {{Optimization}} of a {{Smart
 \bibitem{zotero-236}
 {{CNC}} vs. {{3D Printing}}: {{What}}'s the {{Best Way}} to {{Make Your Part}}?, https://markforged.com/resources/blog/cnc-vs-3d-printing.
 
-\bibitem{Al-Naggar.Jamil.ea2021}
-Y.~M. {Al-Naggar}, N.~Jamil, M.~F. Hassan, A.~R. Yusoff, Condition monitoring based on {{IoT}} for predictive maintenance of {{CNC}} machines, Procedia CIRP 102 (2021) 314--318.
-\newblock \href {https://doi.org/10.1016/j.procir.2021.09.054} {\path{doi:10.1016/j.procir.2021.09.054}}.
+\bibitem{Kuntoglu.Salur.ea2021}
+M.~Kunto{\u g}lu, E.~Salur, M.~K. Gupta, M.~Sar{\i}kaya, D.~Y. Pimenov, A state-of-the-art review on sensors and signal processing systems in mechanical machining processes, The International Journal of Advanced Manufacturing Technology 116~(9) (2021) 2711--2735.
+\newblock \href {https://doi.org/10.1007/s00170-021-07425-4} {\path{doi:10.1007/s00170-021-07425-4}}.
 
-\bibitem{Axinte.Gindy2004a}
-D.~Axinte, N.~Gindy, Assessment of the effectiveness of a spindle power signal for tool condition monitoring in machining processes, International Journal of Production Research 42~(13) (2004) 2679--2691.
-\newblock \href {https://doi.org/10.1080/00207540410001671642} {\path{doi:10.1080/00207540410001671642}}.
+\bibitem{Jozwik.Mika2015}
+J.~J{\'o}zwik, D.~Mika, {{DIAGNOSTICS OF WORKPIECE SURFACE CONDITION BASED ON CUTTING TOOL VIBRATIONS DURING MACHINING}}, Advances in Science and Technology Research Journal 9 (2015) 57--65.
+\newblock \href {https://doi.org/10.12913/22998624/2365} {\path{doi:10.12913/22998624/2365}}.
 
-\bibitem{Ma.Howard.ea2020}
-L.~Ma, I.~Howard, M.~Pang, Z.~Wang, S.~Jianxiu, Experimental {{Investigation}} of {{Cutting Vibration}} during {{Micro-End-Milling}} of the {{Straight Groove}}, Micromachines 11 (2020) 494.
-\newblock \href {https://doi.org/10.3390/mi11050494} {\path{doi:10.3390/mi11050494}}.
+\bibitem{Sun.Hu.ea2020}
+S.~Sun, X.~Hu, W.~Zhang, Detection of tool breakage during milling process through acoustic emission, The International Journal of Advanced Manufacturing Technology 109~(5) (2020) 1409--1418.
+\newblock \href {https://doi.org/10.1007/s00170-020-05751-7} {\path{doi:10.1007/s00170-020-05751-7}}.
 
-\bibitem{Biermann.Zabel.ea2013}
-D.~Biermann, A.~Zabel, T.~Br{\"u}ggemann, A.~Barthelmey, A {{Comparison}} of {{Low Cost Structure-borne Sound Measurement}} and {{Acceleration Measurement}} for {{Detection}} of {{Workpiece Vibrations}} in 5-axis {{Simultaneous Machining}}, Procedia CIRP 12 (2013) 91--96.
-\newblock \href {https://doi.org/10.1016/j.procir.2013.09.017} {\path{doi:10.1016/j.procir.2013.09.017}}.
+\bibitem{Brion.Pattinson2022}
+D.~A.~J. Brion, S.~W. Pattinson, Generalisable {{3D}} printing error detection and correction via multi-head neural networks, Nature Communications 13~(1) (2022) 4654.
+\newblock \href {https://doi.org/10.1038/s41467-022-31985-y} {\path{doi:10.1038/s41467-022-31985-y}}.
+
+\bibitem{Pfirrmann.Baumann.ea2021}
+D.~Pfirrmann, J.~Baumann, E.~Krebs, D.~Biermann, P.~Wiederkehr, Material defects detection based on in-process measurements in milling of {{Ti6246}} alloy, Procedia CIRP 99 (2021) 165--170.
+\newblock \href {https://doi.org/10.1016/j.procir.2021.03.023} {\path{doi:10.1016/j.procir.2021.03.023}}.
+
+\bibitem{Korkmaz.Yasar.ea2020}
+M.~E. Korkmaz, N.~Ya{\c s}ar, M.~G{\"u}nay, Numerical and experimental investigation of cutting forces in turning of {{Nimonic 80A}} superalloy, Engineering Science and Technology, an International Journal 23~(3) (2020) 664--673.
+\newblock \href {https://doi.org/10.1016/j.jestch.2020.02.001} {\path{doi:10.1016/j.jestch.2020.02.001}}.
+
+\bibitem{Szulewski.Sniegulska-Gradzka2017}
+P.~Szulewski, D.~{\'S}niegulska-Gr{\k a}dzka, Systems of automatic vibration monitoring in machine tools, Mechanik 90~(3) (2017) 170--175.
+\newblock \href {https://doi.org/10.17814/mechanik.2017.3.37} {\path{doi:10.17814/mechanik.2017.3.37}}.
 
 \end{thebibliography}
