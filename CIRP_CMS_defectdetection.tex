@@ -250,7 +250,7 @@ Sound          & $\bullet$\hspace{.5mm}      & $\bullet$\hspace{.5mm}  \\
 \vspace*{-.5\baselineskip}
 Dynamometers commonly utilise all six spatial axes (three translatory and three rotatory) to capture force profiles at high sampling rates, with higher rates correlating with increased cost.
 Vibrations measured by accelerometers refer to the oscillatory motion of an object or system around an equilibrium position ($f_{acc}$ $\lesssim$ 10 kHz).
-AE refers specifically to the release of stress waves or energy due to internal changes or deformation within a material. AE is difficult to measure in lower frequencies. Usual frequencies are: 20 kHz $\lesssim$ $f_{AE}$ $\lesssim$ 500 kHz. \cite{Jozwik.Mika2015, Sun.Hu.ea2020}
+AE refers specifically to the release of stress waves or energy due to internal changes or deformation within a material. AE is difficult to measure in lower frequencies; usual frequencies band is: 20 kHz $\lesssim$ $f_{AE}$ $\lesssim$ 500 kHz. \cite{Jozwik.Mika2015, Sun.Hu.ea2020}
 
 Current/power is measured from the drive unit of the spindle (and translates ruffly into spindle tourque) and is therefore extremely cost effective.
 Temperature, mostly measured via thermal imaging cameras, lack high sample rates (due to low frame rates), and suffer from delays and perspective obstacles. 
@@ -357,15 +357,15 @@ To design our context features, we came up with 3 questions.
 	Most classical technological paramters are interdependent: e.g. infeed $a_p [mm]$ is dependent on tool diamter $d [mm]$, that means by changing the tool to a bigger diameter, the ratio from $a_p$ and $d$ changes. To fix this $a_p$ needs dimensional reduction: from $a_p [mm]$ to $a_p / d [\%]$ removing the interdependence of $d$. Feed rate $f$ is dependent on cutting speed $v_c$ and tool diameter $d$. Uncoupled $f$ translates into feed rate per tooth $f_z$.
 	
 	We found the following independent coeffiecients:
-	tool diameter $d$, cutting speed $v_c$, infeed percent $a_{p\%}$, cutting depth $a_e$, tool edge number $z$, direction, milling mode (climb or up-cut), 
-	
-	Additional features are modelled to better describe the cutting context such as: contact arc (angle of attack where tool is in contact with workpiece), arc direction (direction vector of contact arc), chip volume
+	tool diameter $d$, cutting speed $v_c$, infeed percent $a_{p\%}$, cutting depth $a_e$, tool edge number $z$, direction, milling mode (climb or up-cut), spindle speed $n$
+		
+	Additional features are modelled to better describe the cutting context such as: contact arc (angle of attack where tool is in contact with workpiece), arc direction (direction vector of contact arc), chip volume, cutting frequency, 
 	
 	Not all the considered factors can be fully modelled, so there is always some loss of information.
 	Whether the remaining information is sufficient to model the cutting context is analysed in our proof-of-concept implementation.
 \end{enumerate}
 
-The final features that describe cutting context are a mix of static features concluded in question 2 (e.g. material) and independent coefficients (e.g. feed rate per tooth) as well as additionally modeled features (e.g. contact arc) from question 3.
+The final context features are a mix of static features concluded in question 2 (e.g. material), independent coefficients (e.g. feed rate per tooth), as well as additionally modeled features (e.g. contact arc) from question 3.
 
 
 
@@ -373,25 +373,12 @@ The final features that describe cutting context are a mix of static features co
 
 \subsection{Concept architecture}
 \vspace*{-\baselineskip}
-- concept diagram Figure \ref{Fig_ConceptDiagram}
+The general aproach to the lot size one capable material defect monitoring integrates dirctly into common pre-existent production interfaces to enable easy machine agnostic retrofitting. The wohle concept architecure is shown in Fig. \ref{Fig_ConceptDiagram}.
+The whole diagram centers around the "CNC Mill" including its "CNC Controler" in the bottom center. The process steps highlighted in bright green colour represent the standard information flow on the shop floor for CNC machines - no monitoring -just the pre-existent "Conventional Shop Procedure".
+The monitoring system integrates right on top of this procedure which can be subdiveded into four "Monitoring Procedures" (grey boxes): "Signal Acquisition \& Preperation", "Context Acquisition \& Generation", "Signal Context Overlay", and "Contextualised Classification".
 
-- center: CNC
-- conventional procedure
-- grey, the four monitoring procedures, explain them
-- legend: process step, exchanged information
-
-
----
-
-
-
-
-\subsection{ML architecture ???}
-\vspace*{-\baselineskip}
-hhh
-- diagram mit high level ML (konzeptionell)
-
-
+Inside those procedure boxes (bright green and grey) are dark blue coloured "Process Steps", specific functions that process information. Information flows in and out of these dark blue "Process Steps", this flow and exchange of information is visualised with arrows and rounded boxes in turquoise colour, we called them "Exchanged Inforamtion".
+See the diagram for details.
 
 \begin{figure*}[t]
     \centering
@@ -400,6 +387,18 @@ hhh
     \label{Fig_ConceptDiagram}
 \end{figure*}
  
+
+
+\subsection{ML architecture ???}
+\vspace*{-\baselineskip}
+\begin{note}
+	- diagram mit high level ML (konzeptionell)
+\end{note}
+
+
+
+
+
 %=====================================================================
 \section{Implementation}
 \subsection{Proof of concept}
