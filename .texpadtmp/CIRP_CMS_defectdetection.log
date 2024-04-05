@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.12)  3 MAR 2024 17:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.6.12)  15 MAR 2024 12:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -14,14 +14,14 @@ Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count185
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\c@figure=\count191
-\c@table=\count192
+\c@part=\count181
+\c@section=\count182
+\c@subsection=\count183
+\c@subsubsection=\count184
+\c@paragraph=\count185
+\c@subparagraph=\count186
+\c@figure=\count187
+\c@table=\count188
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen141
@@ -37,9 +37,9 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+Package graphics Info: Driver file: xetex.def on input line 107.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen142
 \Gin@req@width=\dimen143
@@ -53,13 +53,13 @@ LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
-\c@tnote=\count193
-\c@fnote=\count194
-\c@cnote=\count195
-\c@ead=\count196
-\c@author=\count197
+\c@tnote=\count189
+\c@fnote=\count190
+\c@cnote=\count191
+\c@ead=\count192
+\c@author=\count193
 \@eadauthor=\toks17
-\c@affn=\count198
+\c@affn=\count194
 \absbox=\box51
 \keybox=\box52
 \Columnwidth=\dimen144
@@ -85,7 +85,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip62
 \bibsep=\skip63
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count199
+\c@NAT@ctr=\count195
 )
 \splwrite=\write3
 \openout3 = `CIRP_CMS_defectdetection.spl'.
@@ -97,9 +97,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count266
-\Gm@cntv=\count267
-\c@Gm@tempcnt=\count268
+\Gm@cnth=\count196
+\Gm@cntv=\count197
+\c@Gm@tempcnt=\count198
 \Gm@bindingoffset=\dimen147
 \Gm@wd@mp=\dimen148
 \Gm@odd@mp=\dimen149
@@ -253,14 +253,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count269
+\inf@bad=\count199
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count270
-\leftroot@=\count271
+\uproot@=\count266
+\leftroot@=\count267
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count272
-\DOTSCASE@=\count273
+\classnum@=\count268
+\DOTSCASE@=\count269
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -273,20 +273,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen166
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count274
+\macc@depth=\count270
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count275
+\c@MaxMatrixCols=\count271
 \dotsspace@=\muskip16
-\c@parentequation=\count276
-\dspbrk@lvl=\count277
+\c@parentequation=\count272
+\dspbrk@lvl=\count273
 \tag@help=\toks21
-\row@=\count278
-\column@=\count279
-\maxfields@=\count280
+\row@=\count274
+\column@=\count275
+\maxfields@=\count276
 \andhelp@=\toks22
 \eqnshift@=\dimen167
 \alignsep@=\dimen168
@@ -305,10 +305,9 @@ Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Driver file: xetex.def on input line 227.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
@@ -321,12 +320,12 @@ Package: siunitx 2023-03-04 v3.2.2 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen173
 \l__siunitx_angle_marker_box=\box59
 \l__siunitx_angle_unit_box=\box60
-\l__siunitx_compound_count_int=\count281
+\l__siunitx_compound_count_int=\count277
  (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count282
+\etb@tempcnta=\count278
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
@@ -336,17 +335,17 @@ Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode not found.
 ))
-\l__siunitx_number_exponent_fixed_int=\count283
-\l__siunitx_number_min_decimal_int=\count284
-\l__siunitx_number_min_integer_int=\count285
-\l__siunitx_number_round_precision_int=\count286
-\l__siunitx_number_lower_threshold_int=\count287
-\l__siunitx_number_upper_threshold_int=\count288
-\l__siunitx_number_group_first_int=\count289
-\l__siunitx_number_group_size_int=\count290
-\l__siunitx_number_group_minimum_int=\count291
+\l__siunitx_number_exponent_fixed_int=\count279
+\l__siunitx_number_min_decimal_int=\count280
+\l__siunitx_number_min_integer_int=\count281
+\l__siunitx_number_round_precision_int=\count282
+\l__siunitx_number_lower_threshold_int=\count283
+\l__siunitx_number_upper_threshold_int=\count284
+\l__siunitx_number_group_first_int=\count285
+\l__siunitx_number_group_size_int=\count286
+\l__siunitx_number_group_minimum_int=\count287
 \l__siunitx_table_tmp_box=\box61
 \l__siunitx_table_tmp_dim=\dimen174
 \l__siunitx_table_column_width_dim=\dimen175
@@ -357,9 +356,9 @@ Package pdftexcmds Info: \pdfdraftmode found.
 \l__siunitx_table_after_box=\box66
 \l__siunitx_table_before_dim=\dimen176
 \l__siunitx_table_carry_dim=\dimen177
-\l__siunitx_unit_tmp_int=\count292
-\l__siunitx_unit_position_int=\count293
-\l__siunitx_unit_total_int=\count294
+\l__siunitx_unit_tmp_int=\count288
+\l__siunitx_unit_position_int=\count289
+\l__siunitx_unit_total_int=\count290
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen178
@@ -595,7 +594,7 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count295
+\c@r@tfl@t=\count291
 \rotFPtop=\skip73
 \rotFPbot=\skip74
 \rot@float@box=\box70
@@ -624,25 +623,21 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count296
+\c@section@level=\count292
 )
 \@linkdim=\dimen180
-\Hy@linkcounter=\count297
-\Hy@pagecounter=\count298
+\Hy@linkcounter=\count293
+\Hy@pagecounter=\count294
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count299
+\Hy@SavedSpaceFactor=\count295
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `bookmarks' set `false' on input line 4060.
 Package hyperref Info: Hyper figures OFF on input line 4177.
@@ -652,7 +647,7 @@ Package hyperref Info: Plain pages OFF on input line 4192.
 Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks OFF on input line 4431.
-\c@Hy@tempcnt=\count300
+\c@Hy@tempcnt=\count296
  (/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -664,7 +659,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count301
+\Fld@menulength=\count297
 \Field@Width=\dimen182
 \Fld@charsize=\dimen183
 Package hyperref Info: Hyper figures OFF on input line 6042.
@@ -678,22 +673,27 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count302
-\c@Item=\count303
-\c@Hfootnote=\count304
+\Hy@abspage=\count298
+\c@Item=\count299
+\c@Hfootnote=\count300
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+Package hyperref Info: Driver (autodetected): hxetex.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2023-02-07 v7.00v Hyperref driver for XeTeX
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\pdfm@box=\box71
+\c@Hy@AnnotLevel=\count301
+\HyField@AnnotCount=\count302
+\Fld@listcount=\count303
+\c@bookmark@seq@number=\count304
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
-)
-\Fld@listcount=\count305
-\c@bookmark@seq@number=\count306
- (/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
@@ -702,13 +702,20 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 96.
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 99.
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 99.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/ot1txr.fd
-File: ot1txr.fd 2000/12/15 v3.1
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count307
-\l__pdf_internal_box=\box71
+LaTeX Font Info:    Trying to load font information for TU+txr on input line 99.
+LaTeX Font Info:    No file TUtxr.fd. on input line 99.
+
+
+LaTeX Font Warning: Font shape `TU/txr/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 99.
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
+\g__graphics_track_int=\count305
+\l__pdf_internal_box=\box72
+\g__pdf_backend_object_int=\count306
+\g__pdf_backend_annotation_int=\count307
+\g__pdf_backend_link_int=\count308
 ) (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.aux)
 \openout1 = `CIRP_CMS_defectdetection.aux'.
 
@@ -729,6 +736,12 @@ LaTeX Font Info:    ... okay on input line 99.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
 LaTeX Font Info:    ... okay on input line 99.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 99.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 99.
 LaTeX Font Info:    ... okay on input line 99.
 LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 99.
 LaTeX Font Info:    Trying to load font information for OMX+txex on input line 99.
@@ -746,29 +759,11 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
 LaTeX Font Info:    ... okay on input line 99.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
 LaTeX Font Info:    ... okay on input line 99.
- (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
-\scratchdimen=\dimen184
-\scratchbox=\box72
-\nofMPsegments=\count309
-\nofMParguments=\count310
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count311
-\MPscratchDim=\dimen185
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
-\everyMPtoPDFconversion=\toks28
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
+
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: xetex
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -806,13 +801,20 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 99.
 Package hyperref Info: Link coloring ON on input line 99.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <9> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 147.
-LaTeX Font Info:    Trying to load font information for TS1+txr on input line 150.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/ts1txr.fd
-File: ts1txr.fd 2000/12/15 v3.1
-)
+
+
+LaTeX Font Warning: Font shape `TU/txr/b/n' undefined
+(Font)              using `TU/txr/m/n' instead on input line 147.
+
+
+LaTeX Font Warning: Font shape `TU/txr/m/it' undefined
+(Font)              using `TU/txr/m/n' instead on input line 152.
+
 LaTeX Font Info:    Calculating math sizes for size <13> on input line 167.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 167.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/ot1txr.fd
+File: ot1txr.fd 2000/12/15 v3.1
+)
 LaTeX Font Info:    Trying to load font information for U+txmia on input line 167.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
@@ -830,145 +832,106 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 16
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Calculating math sizes for size <9.09996> on input line 167.
-LaTeX Font Info:    Font shape `OT1/txr/b/n' in size <10> not available
-(Font)              Font shape `OT1/txr/bx/n' tried instead on input line 172.
 
 Underfull \hbox (badness 10000) detected at line 188
-\OT1/txr/m/n/10 CNC 
- []
-
-
-Underfull \hbox (badness 3088) in paragraph at lines 188--188
-[]\OT1/txr/m/n/10 Computerised Nu-mer-i-cal Con-troled (ma-chine
+\TU/txr/m/it/10 CNC 
  []
 
 
 Underfull \hbox (badness 10000) detected at line 189
-\OT1/txr/m/n/10 AM 
+\TU/txr/m/it/10 AM 
  []
 
 
 Underfull \hbox (badness 10000) detected at line 190
-\OT1/txr/m/n/10 CCC 
+\TU/txr/m/it/10 CCC 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5622) has occurred while \output is active []
 
-<elsevier-logo-5p.pdf, id=12, 54.08205pt x 59.7432pt>
 File: elsevier-logo-5p.pdf Graphic file (type pdf)
 <use elsevier-logo-5p.pdf>
-Package pdftex.def Info: elsevier-logo-5p.pdf  used on input line 205.
-(pdftex.def)             Requested size: 54.0819pt x 59.74303pt.
-LaTeX Font Info:    Trying to load font information for OT1+txss on input line 205.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/txfonts/ot1txss.fd
-File: ot1txss.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 205.
-<SDlogo-5p.pdf, id=13, 96.36pt x 13.04875pt>
+LaTeX Font Info:    Trying to load font information for TU+txss on input line 202.
+LaTeX Font Info:    No file TUtxss.fd. on input line 202.
+
+
+LaTeX Font Warning: Font shape `TU/txss/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 202.
+
 File: SDlogo-5p.pdf Graphic file (type pdf)
 <use SDlogo-5p.pdf>
-Package pdftex.def Info: SDlogo-5p.pdf  used on input line 205.
-(pdftex.def)             Requested size: 96.35974pt x 13.0487pt.
-<Procir.pdf, id=14, 81.45432pt x 59.92387pt>
 File: Procir.pdf Graphic file (type pdf)
 <use Procir.pdf>
-Package pdftex.def Info: Procir.pdf  used on input line 205.
-(pdftex.def)             Requested size: 81.4541pt x 59.9237pt.
 File: elsevier-logo-5p.pdf Graphic file (type pdf)
 <use elsevier-logo-5p.pdf>
-Package pdftex.def Info: elsevier-logo-5p.pdf  used on input line 205.
-(pdftex.def)             Requested size: 54.0819pt x 59.74303pt.
 File: SDlogo-5p.pdf Graphic file (type pdf)
 <use SDlogo-5p.pdf>
-Package pdftex.def Info: SDlogo-5p.pdf  used on input line 205.
-(pdftex.def)             Requested size: 96.35974pt x 13.0487pt.
 File: Procir.pdf Graphic file (type pdf)
 <use Procir.pdf>
-Package pdftex.def Info: Procir.pdf  used on input line 205.
-(pdftex.def)             Requested size: 81.4541pt x 59.9237pt.
 
-Overfull \vbox (62.46999pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (35.45999pt too high) has occurred while \output is active []
-
- [1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}
-
-
- <./elsevier-logo-5p.pdf> <./SDlogo-5p.pdf> <./Procir.pdf>]
-Underfull \hbox (badness 10000) detected at line 234
-[]
+Overfull \hbox (12.95pt too wide) has occurred while \output is active
+| \TU/txr/m/it/8 www.elsevier.com/locate/procedia 
  []
 
 
-Overfull \hbox (29.72005pt too wide) in alignment at lines 236--247
+Overfull \vbox (62.87pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (35.712pt too high) has occurred while \output is active []
+
+ [1
+
+
+]
+Overfull \hbox (11.00809pt too wide) in alignment at lines 237--248
 [] [] [] 
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 269--272
-[]\OT1/txr/m/n/10 Another note-wor-thy study [[]] in-ves-ti-gates the cut-ting
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
+[]\TU/txr/m/it/10 - DBN (deep belieef network) feature reduc-
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-<ConceptDiagram.pdf, id=91, 2409.23183pt x 1396.98708pt>
-File: ConceptDiagram.pdf Graphic file (type pdf)
-<use ConceptDiagram.pdf>
-Package pdftex.def Info: ConceptDiagram.pdf  used on input line 400.
-(pdftex.def)             Requested size: 516.78287pt x 299.64293pt.
- [3] (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.bbl
-Underfull \hbox (badness 2547) in paragraph at lines 28--29
-[]\OT1/txr/m/n/8 3D print-ing vs. CNC ma-chin-ing: Which is bet-ter for pro-to-typ-ing
- []
-
-
-Underfull \hbox (badness 1014) in paragraph at lines 28--29
-\OT1/txr/m/n/8 and end-use parts?, https://www.hubs.com/knowledge-base/3d-printing-
- []
-
-
-Underfull \hbox (badness 1603) in paragraph at lines 31--32
-[]\OT1/txr/m/n/8 CNC vs. 3D Print-ing: What's the Best Way to Make Your Part?,
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./ConceptDiagram.pdf>]
+ [3]
+File: ConceptDiagram.pdf Graphic file (type pdf)
+<use ConceptDiagram.pdf>
+ (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.bbl
+LaTeX Font Info:    Trying to load font information for TU+cmtt on input line 10.
+LaTeX Font Info:    No file TUcmtt.fd. on input line 10.
 
-/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.bbl:58: LaTeX Error: Command \k unavailable in encoding OT1.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.58 P.~Szulewski, D.~{\'S}niegulska-Gr{\k
-                                           a}dzka, Systems of automatic vibr...
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+LaTeX Font Warning: Font shape `TU/cmtt/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 10.
 
-) [5
 
-] (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.aux) ) 
+Underfull \hbox (badness 1990) in paragraph at lines 13--15
+[]\TU/cmtt/m/n/8 Z. Qin, Y. Lu, Self-organizing manufacturing network: A
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+[]\TU/cmtt/m/n/8 D. Pfirrmann, J. Baumann, E. Krebs, D. Biermann,
+ []
+
+) [4] [5] (/Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 16312 strings out of 476025
- 304188 string characters out of 5790017
- 1872388 words of memory out of 5000000
- 36462 multiletter control sequences out of 15000+600000
- 573872 words of font info for 181 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 75i,15n,77p,901b,1059s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.pdf (5 pages, 928678 bytes).
-PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 15991 strings out of 476683
+ 301082 string characters out of 5804047
+ 1872018 words of memory out of 5000000
+ 36016 multiletter control sequences out of 15000+600000
+ 546215 words of font info for 143 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 72i,14n,77p,901b,787s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+Output written on /Users/jo/Documents/CIRP_CMS_tex_git/.texpadtmp/CIRP_CMS_defectdetection.pdf (5 pages).

@@ -49,7 +49,7 @@
 
 %% Give the author list to appear in the running head
 %% Example \runauth{C.V. Radhakrishnan et al.}
-\runauth{Johannes Kimmle et al.}
+\runauth{J. Kimmle et al.}
 
 %% The choice of journal logo is determined by the \jid and \jnltitlelogo commands.
 %% A user-supplied logo with the name <\jid>logo.pdf will be inserted if present.
@@ -124,7 +124,7 @@
 
 \dochead{57th CIRP Conference on Manufacturing Systems 2024 (CMS 2024)}
 
-\title{Digital Twin Based Online Material Defect Detection for CNC-Milled Workpieces}
+\title{Digital twin based online material defect detection for CNC-milled workpieces}
 
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{<author name>}
@@ -150,7 +150,7 @@ To address this challenge, our approach aims to bridge the current gap in resear
 \end{abstract}
 
 \begin{keyword}
- Online process monitoring \sep Material defect detection \sep Digital Twin \sep Lot size one \sep Vibration monitoring
+ Online process monitoring \sep Material defect detection \sep Digital Twin
 
 %old: Monitoring \sep Machining \sep Material defects \sep Vibrations \sep Lot size one
 
@@ -171,47 +171,38 @@ To address this challenge, our approach aims to bridge the current gap in resear
 \section{Introduction}\label{Sec_Introduction}
 
 
-The manufacturing industry is undergoing a paradigm shift, transitioning from a focus on \textit{responsiveness} to a \textit{market-of-one}, deemed \textit{Mass Individualisation} \cite{Lu.Xu.ea2020} or \textit{Mass Personalisation} \cite{Qin.Lu2021}. This entails the production of custom-made products while maintaining the low unit costs traditionally associated with mass production.
+The manufacturing industry is undergoing a paradigm shift, transitioning from a focus on responsiveness to a market-of-one, deemed Mass Individualisation\cite{Lu.Xu.ea2020} or Mass Personalisation \cite{Qin.Lu2021}. This entails the production of custom-made products while maintaining the low unit costs traditionally associated with mass production.
 In response, there has been a global push towards smart manufacturing characterized by autonomous operations enabled by advanced sensing, data processing, and decision-making technologies. \cite{Gu.Koren2022, Lu.Morris.ea2016}
 
-%While Additive Manufacturing (AM) can counter some of these challenges it is inferior to traditional Numerical Controlled machine tools (CNCs) such as milling machines concerning Dimensional accuracy, limited types of usable material, or low productivity. \cite{Chen.Lin2017,zotero-232,zotero-236} Hence, CNC processes will remain pivotal in manufacturing environments, offering great potential for optimisation due to their widespread adoption.  
+Within this context, reducing lot sizes in job-shop settings becomes imperative,
 
+
+
+\begin{note}
+... weg damit...\\
 Within this context, reducing lot sizes in job-shop settings becomes imperative, and additive manufacturing (AM), particularly 3D printing, emerges as a promising solution due to its autonomy and versatility.
-However, despite its advantages, AM still falls short compared to traditional techniques like CNC milling in aspects such as dimensional accuracy, mechanical properties, material variety, and surface quality \cite{Chen.Lin2017,zotero-232,zotero-236}.
+However, despite its advantages, AM still falls short compared to traditional techniques like CNC milling in aspects such as dimensional accuracy, mechanical properties, material variety, and surface quality \cite{Chen.Lin2017, Schmidt2016}.
 CNC milling, therefore, remains pivotal, presenting not only significant potential but also high necessity for optimisation due to its complex nature of underlying processes that result in lower process resilience and robustness compared to AM.
+\end{note}
+
 
 %\vspace*{8pt}
-%\vspace*{-\baselineskip}
+\vspace*{-\baselineskip}
 \begin{nomenclature}
 \begin{deflist}[AAA]%number of letters
 \defitem{CNC}\defterm{Computerised Numerical Controled (machine tool)}
 \defitem{AM}\defterm{Additive Manufacturing}
-\defitem{CCC}\defterm{...}
+\defitem{ML}\defterm{Machine Learning}
 \end{deflist}
 \end{nomenclature}%\vskip24pt
 
-%idea:
-%\begin{note}
-%	- monitoring system to make make cnc machines more resilient and robust in a lot size one production scenario\\
-%	- focussing on workpiece monitoring, specifically material defects and user error (at setup, like wrong part material, or part clamping error)
-%\end{note}
 
-%\subsection{Technical and economic demand}
-A monitoring system that utilises deep process context (e.g. technological, geometric, or material property data) to generate reference agnostic (= lot size one capable) process status insights, would ready CNC mills for the Mass Personalisation paradigm shift.
+A monitoring system that utilises deep process context (e.g. technological, geometric, or material property data) to generate reference agnostic - lot size one capable - process status insights, would ready CNC mills for the Mass Personalisation paradigm shift.
 
-Such a workpiece-centred monitoring system, which detects material defects or user (=operator) errors (e.g. wrong material, or part clamping errors) during normal machining, can increase process efficiency \& reliability, reduce waste, and enable higher product quality.  
+Such a workpiece-centred monitoring system, which detects material defects or operator errors (e.g. wrong material, or part clamping errors) during normal machining, can increase process efficiency \& reliability, reduce waste, and enable higher product quality.  
 
-To achieve economic efficiency and general market accessibility, this system must be easy to integrate, machine-agnostic, and relatively low-cost.
+To achieve economic efficiency and general market accessibility, this lot-size-one capable system must be easy to integrate, machine-agnostic, and relatively low-cost.
 
-\vspace*{.5\baselineskip}
-\noindent Requirements conclusion: workpiece quality monitoring system that is: 
-\vspace*{-\baselineskip}
-\begin{itemize}
-	\item lot size one capable
-	\item machine agnostic
-	\item easy to integrate
-	\item cost effective
-\end{itemize}
 
  
 %=====================================================================
@@ -230,9 +221,10 @@ The following sensors are in use for CNC monitoring and are rated by investment 
 
 
 \begin{table}[h]
-\footnotesize	
+\footnotesize
 \caption{Sensors according to signals and properties \cite[according to][p.2725]{Kuntoglu.Salur.ea2021}}
 \label{Tab_Sensors}
+
 \begin{tabular*}{\hsize}{@{\extracolsep{\fill}}lll@{}}
 \toprule
 Sensor & Level of investment cost & Extent of signal accuracy\\ && and information value\\
@@ -263,41 +255,26 @@ Temperature, mostly measured via thermal imaging cameras, lack high sample rates
 
 \href{https://www.matta.ai/greymatta}{Matta's Grey-1 model} as shown in their paper \cite{Brion.Pattinson2022} demonstrates AM process monitoring on fused layer deposit 3D printers, based on an automated deep process understanding. 
 They trained a multi head transformer model on labeled images; labels such as: extrusion speed, layer thickness and hotend temperature. They are able to detect extrusions errors (which translate into material defects), or adjust printing parameters fully autonomously for unseen material. \cite{Brion.Pattinson2022}
-This study serves as a substantial inspiration and influence for the present work.
 
 
-Another noteworthy study \cite{Pfirrmann.Baumann.ea2021} investigates the cutting forces measured by a (6-axis) dynamometer in the micromanufacturing of Ti6246 alloy by comparing them with theoretically calculated forces, to detect material defects such as blowholes.
+\cite{Pfirrmann.Baumann.ea2021} investigates the cutting forces measured by a (6-axis) dynamometer in the micromanufacturing of Ti6246 alloy by comparing them with theoretically calculated forces, to detect material defects such as blowholes.
 This approach is in theory lot size one capable because the force measurement is not compared to a previsouly manufacured 1:1 reference, but rather is based on experimental measurements and a geometric physics-based process simulation. 
 It is concluded that the accuracy of the calculated force and the insufficient change in amplitude between normal and defect machining are too low to achieve automated detection. \cite[p.169]{Pfirrmann.Baumann.ea2021} 
 
-While dynamometer force measurements offer the highest signal accuracy and information value due to their direct measurement method and process proximity \cite[]{Korkmaz.Yasar.ea2020}, they are expensive (multiple 10s of thousands of euros), difficult to set up, and usually not feasible for production environments (see Table \ref{Tab_Sensors}).
+While dynamometer force measurements offer the highest signal accuracy and information value due to their direct measurement method and process proximity \cite[]{Korkmaz.Yasar.ea2020}, they are expensive (\euro $10^4$ magnitude), difficult to set up, and usually not feasible for production environments (compare Table \ref{Tab_Sensors}).
 
 Qass's Optimizer 4D, an off-the-shelf AE-based general-purpose inspection system, addresses the problems of dynamometers described above, at the cost of reduced signal accuracy. The system is still expensive, but it comes with out-of-the-box spectral pattern recognition, which enables reference-dependent material defect detection, thus is not lot size one capable. \cite[p.5]{Szulewski.Sniegulska-Gradzka2017}
 
 \vspace*{.5\baselineskip}
-\noindent Research gap conclusion:\label{gap}
+\noindent The current research gap in this field is concluded as follows: \label{gap}
 \vspace*{-\baselineskip}
 \begin{itemize}
-	\item research in online CNC workpiece quality monitoring remains relatively underexplored
-	\item material defect detection represents a particular under-researched subfield
-	\item only a single paper has been identified thus far that addresses reference-independent defect monitoring within this domain
+	\item Research in online CNC workpiece quality monitoring remains relatively underexplored.
+	\item Material defect detection represents a particular under-researched subfield.
+	\item Only one single paper has been identified thus far that addresses reference-independent defect monitoring within this domain. % (and did not suceed, see \cite[p.5]{Szulewski.Sniegulska-Gradzka2017}).
 \end{itemize}
 
-\subsection{ML usage in CNC monitoring}
-\vspace*{-\baselineskip}
 
-
-
-
-\begin{note}
-ML: was machen andere paper mit ml, allgemein timeseries analysis...
-
-- DBN (deep belieef network) feature reduction/extraction
-
-- SVM (support vector machine) classification
-
-optional: --> research gap
-\end{note}
 
 
 
@@ -308,15 +285,20 @@ optional: --> research gap
 
 %=====================================================================
 \section{Aproach}\label{Sec_Aproach}
-The general aproach to fullfill the requirements from Section \ref{Sec_Introduction} in the scope of the research gap concluded in Section \ref{Sec_RelatedWork}, is to use cost effective sensors that are easy to retro fit and don't disturb machining, and to contextualise sensor data with machining-specific information, to enable effective lot-size one monitoring.
 
+Digital twins provide a solution to fullfill the requirements listed at the end of section \ref{Sec_Introduction} in the scope of the research gap concluded in section \ref{Sec_RelatedWork}, by enabling the combination of cost-effective retro-fit sensors that don't disturb machining and an encoding of the cutting process serving as contextual refference, to enable effective lot-size one monitoring.
+
+\begin{note}
+alternativ...
+
+	Digital twins offer a solution to meet the requirements outlined at the end of Section \ref{Sec_Introduction} and address the research gap identified in Section \ref{Sec_RelatedWork}. This is achieved by integrating affordable retrofit sensors that do not interfere with machining and encoding the cutting process for contextual reference, enabling efficient monitoring tailored to individual production runs.
+\end{note}
 
 \subsection{Physical quanitity to monitor}
 \vspace*{-\baselineskip}
 Vibrations measured via accelerometers or Acoustic Emission (AE) sensors form a great compromise between ease of installation \& cost, and signal accuracy \& information value. While Dynamometers entail greater information value, their high cost and poor mountability don't make them viable for general monitoring. Other options such as "current/power" "temperature" or "sound" hold lower information value and are therefore not considered.
-Additionaly are the relatively easy 
 
-The easily and cheaply achievable high sampling rates of vibration measuremnts are an enormous advantage when zooming in and analysing each cutting event (cutting edge engagement). As the paper \cite{Pfirrmann.Baumann.ea2021} shows that especially smaller/micro material defects affect machining forces for just a few edge engagements, lasting in total a few microseconds.
+The easily and cheaply achievable high sampling rates of vibration measuremnts are an enormous advantage when zooming in in the timedomain and analysing each cutting event (cutting edge engagement). As the paper \cite{Pfirrmann.Baumann.ea2021} shows that especially smaller/micro material defects affect machining forces for just a few edge engagements, lasting in total a few microseconds.
 
 \subsection{Machining-context features}
 \vspace*{-\baselineskip}
@@ -371,14 +353,16 @@ The final context features are a mix of static features concluded in question 2 
 
 
 
-\subsection{Concept architecture}
+\subsection{Concept architecture}\label{Sec_ConceptArchitecture}
 \vspace*{-\baselineskip}
-The general aproach to the lot size one capable material defect monitoring integrates dirctly into common pre-existent production interfaces to enable easy machine agnostic retrofitting. The wohle concept architecure is shown in Fig. \ref{Fig_ConceptDiagram}.
-The whole diagram centers around the "CNC Mill" including its "CNC Controler" in the bottom center. The process steps highlighted in bright green colour represent the standard information flow on the shop floor for CNC machines - no monitoring -just the pre-existent "Conventional Shop Procedure".
+The general aproach to the lot size one capable material defect monitoring integrates dirctly into common pre-existent production interfaces to enable easy machine agnostic retrofitting. The full concept architecure is shown in Fig. \ref{Fig_ConceptDiagram}.
+The diagram centers around the "CNC Mill" including its "CNC Controler" in the bottom center. The process steps highlighted in bright green colour represent the standard information flow on the shop floor for CNC machines - no monitoring -just the pre-existent "Conventional Shop Procedure".
 The monitoring system integrates right on top of this procedure which can be subdiveded into four "Monitoring Procedures" (grey boxes): "Signal Acquisition \& Preperation", "Context Acquisition \& Generation", "Signal Context Overlay", and "Contextualised Classification".
 
 Inside those procedure boxes (bright green and grey) are dark blue coloured "Process Steps", specific functions that process information. Information flows in and out of these dark blue "Process Steps", this flow and exchange of information is visualised with arrows and rounded boxes in turquoise colour, we called them "Exchanged Inforamtion".
 See the diagram for details.
+
+To detect defects while machining, the architecture is designed to be real-time capable. The "Conventional Shop Proecdure" - except milling itself - and "Context Acquisition \& Generation" procedures are deterministic and therefore can be calculated beforehand, all other procedures must be real time capable, including "Signal Acquisition", "Signal-Context Overlay" and the "Contextualised Classification".
 
 \begin{figure*}[t]
     \centering
@@ -392,10 +376,16 @@ See the diagram for details.
 \subsection{ML architecture ???}
 \vspace*{-\baselineskip}
 \begin{note}
-	- diagram mit high level ML (konzeptionell)
+	- diagram mit high level ML (konzeptionell) -eher nett!\\
+	- realtime capability /\\
+	- model diagram: con2D to MLP
+	- seperate training (1. abstraction, 2. classifacation
 \end{note}
 
 
+As explained in section \ref{Sec_ConceptArchitecture}, "Contextual Classification" must be real-time capable. As part of that procedure the ML architecture is chosen accordingly. This means that in production the trained model is fed constantly with a fixed length of overlapping short vibration snippets ($\sim0.5 s$ duration) and according context data specific to each vibration snippet. 
+
+As shown in Fig. \ref{Fig_MLArcicture} 
 
 
 
@@ -403,10 +393,34 @@ See the diagram for details.
 \section{Implementation}
 \subsection{Proof of concept}
 \vspace*{-\baselineskip}
+\begin{note}
 from full design concept to simplified proof of concept.
 DoE,  
 
 welche context feature können heraus vereinfacht werden? - Maschinentyp=1, Werkstoff=1 ...
+\end{note}
+
+
+To validate the concept (from Chap. \ref{Sec_ConceptArchitecture}) a simplified version is implemented as prototype to answer if reference independent defect detection based on context data is possible and if so to which extent.
+
+Contextual features essential for the production concept, yet easily abstracted, are omitted to prioritise features with influence-characteristics that are challenging to assess beforehand. For example, if reliable defect classification works on one type of machine, it is probable to perform similarly on another machine when trained on data specific to said machine.
+Given the rationale of the example above, features such as 'machine-type' and 'material' are excluded from the prototype's contextual data.
+The feature 'stock shape' is believed to influence Eigen-frequencies, particularly on slender parts. To ensure explicit testability, only non-slender geometries are retained, leading to the rationalisation of the 'stock shape' feature.
+An example of a feature deemed relevant for the prototype, owing to the difficulty of generalizing it beforehand, is the 'contact-arc'.
+
+
+DoE, static
+
+To prevent data imbalance, ensure broad coverage of context parameter values and combinations, and achieve a clean, reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique Parameter Combinations (UPCs) beforehand.
+
+
+Each UPC contains a
+
+ 
+
+
+
+
 
 
 
@@ -423,6 +437,10 @@ hhh
 DoE -> static gocode lines (drawing) 
 in python, auf emco, ...
 
+
+\subsection{ML model}
+\vspace*{-\baselineskip}
+üaspdfij
 
  
 %=====================================================================
