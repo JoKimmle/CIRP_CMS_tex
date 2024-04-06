@@ -411,12 +411,18 @@ An example of a feature deemed relevant for the prototype, owing to the difficul
 
 DoE, static
 
-To prevent data imbalance, ensure broad coverage of context parameter values and combinations, and achieve a clean, reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique Parameter Combinations (UPCs) beforehand.
+
+\#Setup???
+
+To prevent data imbalance, ensure broad coverage of context parameter values \& combinations, and achieve a clean, reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique (context) Parameter Combinations (UPCs) beforehand.
+Based on the UPCs, stock shape, and defect-mode a CNC a tool path is calculated and translated into machine code (gCode) to run on the CNC-mill. 
+In detail this means that synthetic defects are placed at known locations on the prepaired workpiece with an engraving end mill, that are then machined with preconfigured context data (UPCs). With this aproach it is easy to test specific context parameter settings and automate datalabeling (defect \& context labels), while ensuring precise defect label placement.
 
 
-Each UPC contains a
+
 
  
+
 
 
 
@@ -428,9 +434,19 @@ Each UPC contains a
 \vspace*{-\baselineskip}
 Datensatz dimension und umfang
 
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.99\linewidth]{dataset_gen.png}
+    \caption{High-Level Concept}
+    \label{Fig_ConceptDiagram}
+\end{figure*}
+
+
+
 \subsection{Experiment pipeline}
 \vspace*{-\baselineskip}
-hhh
+neee eher net
 
 \subsection{Experiment setup}
 \vspace*{-\baselineskip}
