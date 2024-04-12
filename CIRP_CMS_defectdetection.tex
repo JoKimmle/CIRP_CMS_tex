@@ -172,36 +172,31 @@ To address this challenge, our approach aims to bridge the current gap in resear
 
 
 The manufacturing industry is undergoing a paradigm shift, transitioning from a focus on responsiveness to a market-of-one, deemed Mass Individualisation\cite{Lu.Xu.ea2020} or Mass Personalisation \cite{Qin.Lu2021}. This entails the production of custom-made products while maintaining the low unit costs traditionally associated with mass production.
-In response, there has been a global push towards smart manufacturing characterized by autonomous operations enabled by advanced sensing, data processing, and decision-making technologies. \cite{Gu.Koren2022, Lu.Morris.ea2016}
+In response, there has been a global push towards smart manufacturing characterised by autonomous operations enabled by advanced sensing, data processing, and decision-making technologies. \cite{Gu.Koren2022, Lu.Morris.ea2016}
 
-Within this context, reducing lot sizes in job-shop settings becomes imperative,
-
-
-
-\begin{note}
-... weg damit...\\
-Within this context, reducing lot sizes in job-shop settings becomes imperative, and additive manufacturing (AM), particularly 3D printing, emerges as a promising solution due to its autonomy and versatility.
-However, despite its advantages, AM still falls short compared to traditional techniques like CNC milling in aspects such as dimensional accuracy, mechanical properties, material variety, and surface quality \cite{Chen.Lin2017, Schmidt2016}.
-CNC milling, therefore, remains pivotal, presenting not only significant potential but also high necessity for optimisation due to its complex nature of underlying processes that result in lower process resilience and robustness compared to AM.
-\end{note}
-
-
-%\vspace*{8pt}
-\vspace*{-\baselineskip}
-\begin{nomenclature}
-\begin{deflist}[AAA]%number of letters
-\defitem{CNC}\defterm{Computerised Numerical Controled (machine tool)}
-\defitem{AM}\defterm{Additive Manufacturing}
-\defitem{ML}\defterm{Machine Learning}
-\end{deflist}
-\end{nomenclature}%\vskip24pt
-
-
-A monitoring system that utilises deep process context (e.g. technological, geometric, or material property data) to generate reference agnostic - lot size one capable - process status insights, would ready CNC mills for the Mass Personalisation paradigm shift.
+Within this context, reducing lot sizes in job-shop settings becomes imperative.
+Smarter, more self-aware production machines pose as a fundemental enabler for the new paradigm. This can be achieved by employing deep process-focused monitoring systems to generate reference agnostic - lot size one capable - process status insights.
 
 Such a workpiece-centred monitoring system, which detects material defects or operator errors (e.g. wrong material, or part clamping errors) during normal machining, can increase process efficiency \& reliability, reduce waste, and enable higher product quality.  
 
 To achieve economic efficiency and general market accessibility, this lot-size-one capable system must be easy to integrate, machine-agnostic, and relatively low-cost.
+
+%\vspace*{8pt}
+\vspace*{-.5\baselineskip}
+\begin{nomenclature}
+\begin{deflist}[AAA]%number of letters
+\defitem{AE}\defterm{Acoustic Emission}
+\defitem{CNC}\defterm{Numerical Controled (machine tool)}
+\defitem{DoE}\defterm{Design of Experiments}
+\defitem{ML}\defterm{Machine Learning}
+\defitem{MLP}\defterm{Multi Layer Perceptron}
+\defitem{UPC}\defterm{Unique (context) Parameter Combination}
+\end{deflist}
+\end{nomenclature}\vskip24pt
+
+
+
+
 
 
  
@@ -253,7 +248,7 @@ Temperature, mostly measured via thermal imaging cameras, lack high sample rates
 \vspace*{-\baselineskip}
 
 
-\href{https://www.matta.ai/greymatta}{Matta's Grey-1 model} as shown in their paper \cite{Brion.Pattinson2022} demonstrates AM process monitoring on fused layer deposit 3D printers, based on an automated deep process understanding. 
+\href{https://www.matta.ai/greymatta}{Matta's Grey-1 model} as shown in their paper \cite{Brion.Pattinson2022} demonstrates additive manufacturing process monitoring on fused layer deposit 3D printers, based on an automated deep process understanding. 
 They trained a multi head transformer model on labeled images; labels such as: extrusion speed, layer thickness and hotend temperature. They are able to detect extrusions errors (which translate into material defects), or adjust printing parameters fully autonomously for unseen material. \cite{Brion.Pattinson2022}
 
 
@@ -285,35 +280,36 @@ Qass's Optimizer 4D, an off-the-shelf AE-based general-purpose inspection system
 
 %=====================================================================
 \section{Aproach}\label{Sec_Aproach}
+The proposed aproach to enable the Mass Personalisation paradigm shift in the realm of CNC-mill monitoring is based on deep process context (e.g. technological, geometric, or material property data) to generate 1:1 reference agnostic (lot size one capable) process status insights.
 
-Digital twins provide a solution to fullfill the requirements listed at the end of section \ref{Sec_Introduction} in the scope of the research gap concluded in section \ref{Sec_RelatedWork}, by enabling the combination of cost-effective retro-fit sensors that don't disturb machining and an encoding of the cutting process serving as contextual refference, to enable effective lot-size one monitoring.
+A digital twin offers the solution to meet the requirements and address the identified research gap, in the form of a cyber physical representation of the machining process where context is extracted based on corresponding machine states.
+This is achieved by integrating affordable retrofit sensors that do not interfere with machining, and a digital twin based encoding of the cutting process for contextual reference, enabling effective lot-size one monitoring.
 
-\begin{note}
-alternativ...
+The following chapters cover which physical quantity best suits the requirements, the selection and creation of machining-context features, and the general concept architecture based on these features and employed physical quantity.
 
-	Digital twins offer a solution to meet the requirements outlined at the end of Section \ref{Sec_Introduction} and address the research gap identified in Section \ref{Sec_RelatedWork}. This is achieved by integrating affordable retrofit sensors that do not interfere with machining and encoding the cutting process for contextual reference, enabling efficient monitoring tailored to individual production runs.
-\end{note}
 
 \subsection{Physical quanitity to monitor}
 \vspace*{-\baselineskip}
-Vibrations measured via accelerometers or Acoustic Emission (AE) sensors form a great compromise between ease of installation \& cost, and signal accuracy \& information value. While Dynamometers entail greater information value, their high cost and poor mountability don't make them viable for general monitoring. Other options such as "current/power" "temperature" or "sound" hold lower information value and are therefore not considered.
+Vibrations measured via accelerometers or Acoustic Emission (AE) sensors form a great compromise between ease of installation \& cost, and signal accuracy \& information value. While Dynamometers entail greater information value, their high cost and poor mountability don't make them viable for general monitoring. Other options such as 'current/power' 'temperature' or 'sound' hold lower information value and are therefore not considered.
 
 The easily and cheaply achievable high sampling rates of vibration measuremnts are an enormous advantage when zooming in in the timedomain and analysing each cutting event (cutting edge engagement). As the paper \cite{Pfirrmann.Baumann.ea2021} shows that especially smaller/micro material defects affect machining forces for just a few edge engagements, lasting in total a few microseconds.
 
 \subsection{Machining-context features}
 \vspace*{-\baselineskip}
 
-Key aspect of our aproach is to substitute a 1:1 reference of the same part manufactured prior, by general machining and cutting conditions and circumstances for each point in time in the manufacturing process, we call this data: context.
-To design our context features, we came up with 3 questions.
+Key aspect of the proposed aproach is to substitute a 1:1 reference of the same part manufactured prior, by general machining and cutting conditions and circumstances for each point in time in the manufacturing process. This data is refered to as 'context'.
 
-\vspace*{-.5\baselineskip}
-\begin{enumerate}
-	\item \textit{What factors influence the cutting process?}
-	\vspace*{-\baselineskip}
+The routine that was followed for the context features creation, including: finding, abstracting, generalising, and uncoupling coefficients, is described by 3 aspects in the following sections:
+
+
+\subsubsection{Influencial factors of the cutting process}\label{ascpect1}
+%What factors influence the cutting process?
+Primary influencial factors of the cutting process are:
+\vspace*{-\baselineskip}
 	\begin{itemize}
-		\item workpiece -geometry, -clamping, -material characterstics (e.g. e-module)
-		\item tool -type (shape), -coating (surface), -cutting fluid
-		\item machine -kinemantics, -stiffness, -sub componenent noise
+		\item workpiece geometry, clamping, and material characterstics (e.g. e-module)
+		\item tool type (shape), coating (surface) and cutting fluid
+		\item machine kinemantics, stiffness, and sub componenent noise
 		\item cutting process on chip level (e.g. rake angle)
 		\item generall milling process (e.g. cutting speed: $v_c$)
 		\item others: temperature, chip extraction, direction, etc.
@@ -321,10 +317,9 @@ To design our context features, we came up with 3 questions.
 	\vspace*{-\baselineskip}
 	The above factors affect the cutting process, some directly by influencing the load on the material being removed, ultimately resulting in a change in the virbation pattern. Others affect the process indirectly through resonance, e.g. slender workpiece geometries are excited at their natural frequency.
 	
-	\vspace*{.5\baselineskip}
-	\item \textit{How can the process be described as universally as possible by these factors?}\\
-	Some factors can't be generalised, or are not feasable to do so. Those factors stay as static features that need specific learning later.
-	Incomprhesible features e.g. "specific machine" can't be generalised because of their complex nature, therefore each machine needs custom learning.
+\subsubsection{Universal process description based on the factors described before}\label{ascpect2}
+	Some factors can not be generalised, or are not feasable to do so. Those factors stay as static features that need specific learning later.
+	Incomprhesible features e.g. 'specific machine' can not be generalised because of their complex nature, therefore each machine needs custom learning.
 	Other features are not feasable to generalize because they would make the medel too complex: e.g. material characterisitcs can be explained by more general features such as hardness, tensile strength, etc. Due to the high number of material features, we decided to custom train each material.
 	We have identified the following static features on which later learning is based:
 	material, machine, clamping/fixture, tool type, and cutting fluid.
@@ -333,10 +328,10 @@ To design our context features, we came up with 3 questions.
 	
 	Factors that require specifc sensors in order to be captured, such as temperature, are excluded from the model to keep complexity manageable.
 	
-	\vspace*{.5\baselineskip}
-	\item\label{Q3} \textit{How can these factors be modelled as mathematically independent (uncoupled, lower-dimensional) coefficients?}\\
+\subsubsection{Modelling of the factors as mathematically independent coeffecients}\label{ascpect3}
+%How can these factors be modelled as mathematically independent (uncoupled, lower-dimensional) coefficients?
 	To achieve high quality training data interdependence or correlation among features is to be avoided.
-	Most classical technological paramters are interdependent: e.g. infeed $a_p [mm]$ is dependent on tool diamter $d [mm]$, that means by changing the tool to a bigger diameter, the ratio from $a_p$ and $d$ changes. To fix this $a_p$ needs dimensional reduction: from $a_p [mm]$ to $a_p / d [\%]$ removing the interdependence of $d$. Feed rate $f$ is dependent on cutting speed $v_c$ and tool diameter $d$. Uncoupled $f$ translates into feed rate per tooth $f_z$.
+	Most classical technological paramters are interdependent: e.g. infeed $a_p [mm]$ is dependent on tool diamter $d [mm]$, that means by changing the tool to a bigger diameter, the ratio from $a_p$ and $d$ changes. To fix this $a_p$ needs dimensional reduction: from $a_p [mm]$ to $\frac{a_p}{d} [\%]$ removing the interdependence of $d$. Feed rate $f$ is dependent on cutting speed $v_c$ and tool diameter $d$. Uncoupled $f$ translates into feed rate per tooth $f_z$.
 	
 	We found the following independent coeffiecients:
 	tool diameter $d$, cutting speed $v_c$, infeed percent $a_{p\%}$, cutting depth $a_e$, tool edge number $z$, direction, milling mode (climb or up-cut), spindle speed $n$
@@ -344,10 +339,11 @@ To design our context features, we came up with 3 questions.
 	Additional features are modelled to better describe the cutting context such as: contact arc (angle of attack where tool is in contact with workpiece), arc direction (direction vector of contact arc), chip volume, cutting frequency, 
 	
 	Not all the considered factors can be fully modelled, so there is always some loss of information.
-	Whether the remaining information is sufficient to model the cutting context is analysed in our proof-of-concept implementation.
-\end{enumerate}
+	Whether the remaining information is sufficient to model the cutting context is analysed in the proof-of-concept implementation.
 
-The final context features are a mix of static features concluded in question 2 (e.g. material), independent coefficients (e.g. feed rate per tooth), as well as additionally modeled features (e.g. contact arc) from question 3.
+
+
+The final context features are a mix of static features concluded in \ref{ascpect2}  (e.g. material), independent coefficients (e.g. feed rate per tooth), as well as additionally modeled features (e.g. contact arc) from \ref{ascpect3}.
 
 
 
@@ -355,14 +351,16 @@ The final context features are a mix of static features concluded in question 2 
 
 \subsection{Concept architecture}\label{Sec_ConceptArchitecture}
 \vspace*{-\baselineskip}
-The general aproach to the lot size one capable material defect monitoring integrates dirctly into common pre-existent production interfaces to enable easy machine agnostic retrofitting. The full concept architecure is shown in Fig. \ref{Fig_ConceptDiagram}.
-The diagram centers around the "CNC Mill" including its "CNC Controler" in the bottom center. The process steps highlighted in bright green colour represent the standard information flow on the shop floor for CNC machines - no monitoring -just the pre-existent "Conventional Shop Procedure".
-The monitoring system integrates right on top of this procedure which can be subdiveded into four "Monitoring Procedures" (grey boxes): "Signal Acquisition \& Preperation", "Context Acquisition \& Generation", "Signal Context Overlay", and "Contextualised Classification".
+The general aproach to the lot size one capable material defect monitoring integrates dirctly into common pre-existent production interfaces to enable easy machine agnostic retrofitting. The full concept architecture is shown in Fig. \ref{Fig_ConceptDiagram}.
+The diagram centers around the 'CNC Mill' including its CNC Controler' in the bottom center. The process steps highlighted in bright green colour represent the standard information flow on the shop floor for CNC machines - no monitoring -just the pre-existent 'Conventional Shop Procedure'.
+The monitoring system integrates right on top of this procedure which can be subdiveded into four 'Monitoring Procedures' (grey boxes): 'Signal Acquisition \& Preperation', 'Context Acquisition \& Generation', 'Signal Context Overlay', and 'Contextualised Classification'.
 
-Inside those procedure boxes (bright green and grey) are dark blue coloured "Process Steps", specific functions that process information. Information flows in and out of these dark blue "Process Steps", this flow and exchange of information is visualised with arrows and rounded boxes in turquoise colour, we called them "Exchanged Inforamtion".
+Inside those procedure boxes (bright green and grey) are dark blue coloured 'Process Steps', specific functions that process information. Information flows in and out of these dark blue 'Process Steps', this flow and exchange of information is visualised with arrows and rounded boxes in turquoise colour, we called them 'Exchanged Inforamtion'.
 See the diagram for details.
 
-To detect defects while machining, the architecture is designed to be real-time capable. The "Conventional Shop Proecdure" - except milling itself - and "Context Acquisition \& Generation" procedures are deterministic and therefore can be calculated beforehand, all other procedures must be real time capable, including "Signal Acquisition", "Signal-Context Overlay" and the "Contextualised Classification".
+To detect defects while machining, the architecture is designed to be real-time capable. The 'Conventional Shop Proecdure' - except milling itself - and 'Context Acquisition \& Generation' procedures are deterministic and therefore can be calculated beforehand, all other procedures must be real time capable, including 'Signal Acquisition', 'Signal-Context Overlay' and the 'Contextualised Classification'.
+
+The ML architecture, as part of the 'Contextualised Classification' procedure, must be real-time capable as well. This means that in production the trained model is fed constantly with a fixed length of overlapping short vibration snippets ($\sim0.5 s$ duration) and according context data specific to each vibration snippet.  
 
 \begin{figure*}[t]
     \centering
@@ -373,52 +371,21 @@ To detect defects while machining, the architecture is designed to be real-time 
  
 
 
-\subsection{ML architecture ???}
-\vspace*{-\baselineskip}
-\begin{note}
-	- diagram mit high level ML (konzeptionell) -eher nett!\\
-	- realtime capability /\\
-	- model diagram: con2D to MLP
-	- seperate training (1. abstraction, 2. classifacation
-\end{note}
-
-
-As explained in section \ref{Sec_ConceptArchitecture}, "Contextual Classification" must be real-time capable. As part of that procedure the ML architecture is chosen accordingly. This means that in production the trained model is fed constantly with a fixed length of overlapping short vibration snippets ($\sim0.5 s$ duration) and according context data specific to each vibration snippet. 
-
-As shown in Fig. \ref{Fig_MLArcicture} 
 
 
 
 %=====================================================================
 \section{Implementation}
-\subsection{Proof of concept}
-\vspace*{-\baselineskip}
-\begin{note}
-from full design concept to simplified proof of concept.
-DoE,  
 
-welche context feature können heraus vereinfacht werden? - Maschinentyp=1, Werkstoff=1 ...
-\end{note}
+To validate the concept (from Chap. \ref{Sec_ConceptArchitecture}) a simplified version is implemented as prototype to verify that reference independent defect detection based on context data is possible and determine to which extent.
 
-
-To validate the concept (from Chap. \ref{Sec_ConceptArchitecture}) a simplified version is implemented as prototype to answer if reference independent defect detection based on context data is possible and if so to which extent.
-
-Contextual features essential for the production concept, yet easily abstracted, are omitted to prioritise features with influence-characteristics that are challenging to assess beforehand. For example, if reliable defect classification works on one type of machine, it is probable to perform similarly on another machine when trained on data specific to said machine.
+Contextual features essential for the production concept, yet easily abstracted, are omitted to prioritise features with influence-characteristics that are challenging to assess beforehand and/or hold high process descriptiveness/representability. For example, if reliable defect classification works on one type of machine, it is probable to perform similarly on another machine when trained on data specific to said machine.
 Given the rationale of the example above, features such as 'machine-type' and 'material' are excluded from the prototype's contextual data.
 The feature 'stock shape' is believed to influence Eigen-frequencies, particularly on slender parts. To ensure explicit testability, only non-slender geometries are retained, leading to the rationalisation of the 'stock shape' feature.
 An example of a feature deemed relevant for the prototype, owing to the difficulty of generalizing it beforehand, is the 'contact-arc'.
 
 
-DoE, static
-
-
-\#Setup???
-
-To prevent data imbalance, ensure broad coverage of context parameter values \& combinations, and achieve a clean, reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique (context) Parameter Combinations (UPCs) beforehand.
-Based on the UPCs, stock shape, and defect-mode a CNC a tool path is calculated and translated into machine code (gCode) to run on the CNC-mill. 
-In detail this means that synthetic defects are placed at known locations on the prepaired workpiece with an engraving end mill, that are then machined with preconfigured context data (UPCs). With this aproach it is easy to test specific context parameter settings and automate datalabeling (defect \& context labels), while ensuring precise defect label placement.
-
-
+The following sections describe ...
 
 
  
@@ -430,33 +397,57 @@ In detail this means that synthetic defects are placed at known locations on the
 
 
 
-\subsection{Dataset design}
+\subsection{Design}
 \vspace*{-\baselineskip}
-Datensatz dimension und umfang
+To prevent data imbalance, ensure broad coverage of context parameter values \& combinations, and achieve a clean, reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique (context) Parameter Combinations (UPCs) beforehand.
+Based on the UPCs, stock shape, and defect-mode a CNC a tool path is calculated and translated into machine code (gCode) to run on the CNC-mill. 
 
+
+In detail this means that synthetic defects are placed at known locations on the prepaired workpiece with an engraving end mill, that are then machined with preconfigured context data (UPCs). 
+With this aproach it is easy to test specific context parameter settings and automate datalabeling (defect \& context labels), while ensuring precise defect label placement.
+
+
+The data generation pipeline developed for the simplified model automates the entire process from generating a DoE matrix \& UPCs, tool path planing, machine code generation, context extraction based on the cutting simulation (digital twin), data collection, and data labeling.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.99\linewidth]{dataset_gen.png}
-    \caption{High-Level Concept}
-    \label{Fig_ConceptDiagram}
-\end{figure*}
+    \caption{dataset gen}
+    \label{dataset_gen}
+\end{figure}
 
-
-
-\subsection{Experiment pipeline}
+\subsection{Hardware}
 \vspace*{-\baselineskip}
-neee eher net
+The experiments are carried out on a 3-axis 'EMCO CM260' CNC milling machine with a (emulated) Siemens Sinumerik controller. The machining vibrations are measured by an accelerometer mounted on the machine vice close to the workpiece. The accelerometer 'ADXL1002' is a high frequency (21 $kHz$ resonant frequency) MEMS (microelectromechanical systems) sensor with a low noise density (25 $\frac{\mu g}{\sqrt{Hz}}$). The accelerometer is connected via a coaxial cable to a 'Digilent MCC172' a DAQ (data aquisition) unit with a sampling rate of 51.2 $kHz$.
+The DAQ unit is connected via the 40-pin GPIO (genral-purpose input/output) header of a 'Raspberry Pi 3' - a SoC (Systems on Chip) Desktop-Computer - that functions as data logger.
 
-\subsection{Experiment setup}
+
+
+\subsection{Experiment procedure}
 \vspace*{-\baselineskip}
-DoE -> static gocode lines (drawing) 
-in python, auf emco, ...
+The procedure that yields the finished dataset is tighlty interlocked with the automated data generation pipeline.
+First, selected context features are defined with span and step size. Then a matrix of all parameter combination is created, where each line represents a UPC Unique (context) Parameter Combination. 
+Based on the definded stock shape UPCs are grouped together. Each group of UPCs represents a z-layer of the workpiece. For each layer a toolpath is calculated not only consisisting of the UPCs toolpaths but also the toolpath to first clean all relevant workpiece edges \& surfaces and generate the toolpath for defect-manufacturing via an engraving end mill.
+The layer specific toolpaths are then appended together for a single clamping operation.
+The monolithic toolpath containing several layers is then translated into machine code, which is both executed on the CNC-machine and on the digital twin: the cutting simulation for context (defect-label) generaration. Each layer of vibration measurement and context is saved as a seperate file.
+Layer by layer the raw vibration record and the associated context data is loaded and cut into segments, filtering any cleaning operations and air cuts, leaving single vibration snippets, each with a unique context paramater combination and defect-labels mapped based on the associated context data.
+
+\subsection{Dataset}
+\vspace*{-\baselineskip}
 
 
 \subsection{ML model}
 \vspace*{-\baselineskip}
 üaspdfij
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.99\linewidth]{ML_architecture.png}
+    \caption{ML architecture}
+    \label{ML_architecture}
+\end{figure}
+
+
 
  
 %=====================================================================
@@ -466,7 +457,7 @@ in python, auf emco, ...
 
 \end{note}
 %=====================================================================
-\section{Conclusion}
+\section{Conclusion and outlook}
 \begin{note}
 	and futere recommendation (halbe seite)
 	
