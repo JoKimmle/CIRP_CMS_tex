@@ -239,7 +239,7 @@ Dynamometers commonly utilise all six spatial axes (three translatory and three 
 Vibrations measured by accelerometers refer to the oscillatory motion of an object or system around an equilibrium position ($f_{acc}$ $\lesssim$ 10 kHz).
 AE refers specifically to the release of stress waves or energy due to internal changes or deformation within a material. AE is difficult to measure in lower frequencies; usual frequencies band is: 20 kHz $\lesssim$ $f_{AE}$ $\lesssim$ 500 kHz. \cite{Jozwik.Mika2015, Sun.Hu.ea2020}
 
-Current/power is measured from the drive unit of the spindle (and translates ruffly into spindle tourque) and is therefore extremely cost effective.
+Current/power is measured from the drive unit of the spindle, which approximates into spindle torque and is therefore extremely cost-effective.
 Temperature, mostly measured via thermal imaging cameras, lack high sample rates (due to low frame rates), and suffer from delays and perspective obstacles. 
 
 
@@ -379,7 +379,7 @@ The ML architecture, as part of the 'Contextualised Classification' procedure, m
 
 To validate the concept (from Chap. \ref{Sec_ConceptArchitecture}) a simplified version is implemented as prototype to verify that reference independent defect detection based on context data is possible and determine to which extent.
 
-Contextual features essential for the production concept, yet easily abstracted, are omitted to prioritise features with influence-characteristics that are challenging to assess beforehand and/or hold high process descriptiveness/representability. For example, if reliable defect classification works on one type of machine, it is probable to perform similarly on another machine when trained on data specific to said machine.
+Contextual features essential for the production concept, yet easily abstracted, are omitted to prioritise features with influence-characteristics that are challenging to assess beforehand. For example, if reliable defect classification works on one type of machine, it is probable to perform similarly on another machine when trained on data specific to said machine.
 Given the rationale of the example above, features such as 'machine-type' and 'material' are excluded from the prototype's contextual data.
 The feature 'stock shape' is believed to influence Eigen-frequencies, particularly on slender parts. To ensure explicit testability, only non-slender geometries are retained, leading to the rationalisation of the 'stock shape' feature.
 An example of a feature deemed relevant for the prototype, owing to the difficulty of generalizing it beforehand, is the 'contact-arc'.
@@ -399,7 +399,7 @@ The following sections describe ...
 
 \subsection{Design}
 \vspace*{-\baselineskip}
-To prevent data imbalance, ensure broad coverage of context parameter values \& combinations, and achieve a clean, reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique (context) Parameter Combinations (UPCs) beforehand.
+To prevent data imbalance, ensure broad coverage of context parameter values \& combinations, and achieve a clean reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique (context) Parameter Combinations (UPCs) beforehand.
 Based on the UPCs, stock shape, and defect-mode a CNC a tool path is calculated and translated into machine code (gCode) to run on the CNC-mill. 
 
 
@@ -423,17 +423,20 @@ The DAQ unit is connected via the 40-pin GPIO (genral-purpose input/output) head
 
 
 
-\subsection{Experiment procedure}
+\subsection{Experiment setup}
 \vspace*{-\baselineskip}
 The procedure that yields the finished dataset is tighlty interlocked with the automated data generation pipeline.
 First, selected context features are defined with span and step size. Then a matrix of all parameter combination is created, where each line represents a UPC Unique (context) Parameter Combination. 
 Based on the definded stock shape UPCs are grouped together. Each group of UPCs represents a z-layer of the workpiece. For each layer a toolpath is calculated not only consisisting of the UPCs toolpaths but also the toolpath to first clean all relevant workpiece edges \& surfaces and generate the toolpath for defect-manufacturing via an engraving end mill.
 The layer specific toolpaths are then appended together for a single clamping operation.
-The monolithic toolpath containing several layers is then translated into machine code, which is both executed on the CNC-machine and on the digital twin: the cutting simulation for context (defect-label) generaration. Each layer of vibration measurement and context is saved as a seperate file.
-Layer by layer the raw vibration record and the associated context data is loaded and cut into segments, filtering any cleaning operations and air cuts, leaving single vibration snippets, each with a unique context paramater combination and defect-labels mapped based on the associated context data.
+The monolithic toolpath containing several layers is then translated into machine code, which is both executed on the CNC-machine and on the digital twin: the cutting simulation for context (defect-label) generaration. Each layer of vibration measurement and context is saved as a seperate file (see Fig. \ref{dataset_gen}a)).
+Layer by layer the raw vibration record and the associated context data is loaded and cut into segments, filtering any cleaning operations and air cuts, leaving single vibration snippets, each with a unique context paramater combination and defect-label mapping based on the associated context data.
 
-\subsection{Dataset}
-\vspace*{-\baselineskip}
+The raw vibration snipets are then dissasembled into frequency bands (displayed as spectrograms Fig. \ref{dataset_gen}c)). Based on this time-frequency representation and defect label mapping defect samples are extracted. The same number of non-defect samples are extracted randomly. For 
+
+
+including dataset
+
 
 
 \subsection{ML model}
@@ -454,8 +457,22 @@ Layer by layer the raw vibration record and the associated context data is loade
 \section{Validation}
 \begin{note}
 	...and evaluation
+	
+	Dashboard streamlit -> context influence, full data reperesentation
 
 \end{note}
+
+
+Accuracy: 0.988013698630137\\
+Precision: 0.9929078014184397\\
+Recall: 0.9824561403508771\\
+F1-score: 0.9876543209876543\\
+Confusion Matrix:\\
+[[297   2]\\
+ [  5 280]]\\
+ 
+ 
+ 
 %=====================================================================
 \section{Conclusion and outlook}
 \begin{note}
