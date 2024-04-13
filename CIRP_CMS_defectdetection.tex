@@ -385,22 +385,11 @@ The feature 'stock shape' is believed to influence Eigen-frequencies, particular
 An example of a feature deemed relevant for the prototype, owing to the difficulty of generalizing it beforehand, is the 'contact-arc'.
 
 
-The following sections describe ...
-
-
- 
 
 
 
-
-
-
-
-
-\subsection{Design}
-\vspace*{-\baselineskip}
 To prevent data imbalance, ensure broad coverage of context parameter values \& combinations, and achieve a clean reproducible dataset, a Design of Experiment (DoE) approach is employed. This involves creating a static dataset by defining the span of parameter values and their combinations as sets of Unique (context) Parameter Combinations (UPCs) beforehand.
-Based on the UPCs, stock shape, and defect-mode a CNC a tool path is calculated and translated into machine code (gCode) to run on the CNC-mill. 
+Based on the UPCs, stock shape, and defect-mode a CNC a tool path is calculated and translated into machine code to run on the CNC-mill. 
 
 
 In detail this means that synthetic defects are placed at known locations on the prepaired workpiece with an engraving end mill, that are then machined with preconfigured context data (UPCs). 
@@ -416,6 +405,11 @@ The data generation pipeline developed for the simplified model automates the en
     \label{dataset_gen}
 \end{figure}
 
+
+
+
+The following sections describe the hardware used in the experiments, the experiment setup, the generated dataset and the ML model.
+
 \subsection{Hardware}
 \vspace*{-\baselineskip}
 The experiments are carried out on a 3-axis 'EMCO CM260' CNC milling machine with a (emulated) Siemens Sinumerik controller. The machining vibrations are measured by an accelerometer mounted on the machine vice close to the workpiece. The accelerometer 'ADXL1002' is a high frequency (21 $kHz$ resonant frequency) MEMS (microelectromechanical systems) sensor with a low noise density (25 $\frac{\mu g}{\sqrt{Hz}}$). The accelerometer is connected via a coaxial cable to a 'Digilent MCC172' a DAQ (data aquisition) unit with a sampling rate of 51.2 $kHz$.
@@ -423,7 +417,11 @@ The DAQ unit is connected via the 40-pin GPIO (genral-purpose input/output) head
 
 
 
-\subsection{Experiment setup}
+
+
+
+
+\subsection{Experiment setup and dataset}
 \vspace*{-\baselineskip}
 The procedure that yields the finished dataset is tighlty interlocked with the automated data generation pipeline.
 First, selected context features are defined with span and step size. Then a matrix of all parameter combination is created, where each line represents a UPC Unique (context) Parameter Combination. 
@@ -432,16 +430,25 @@ The layer specific toolpaths are then appended together for a single clamping op
 The monolithic toolpath containing several layers is then translated into machine code, which is both executed on the CNC-machine and on the digital twin: the cutting simulation for context (defect-label) generaration. Each layer of vibration measurement and context is saved as a seperate file (see Fig. \ref{dataset_gen}a)).
 Layer by layer the raw vibration record and the associated context data is loaded and cut into segments, filtering any cleaning operations and air cuts, leaving single vibration snippets, each with a unique context paramater combination and defect-label mapping based on the associated context data.
 
-The raw vibration snipets are then dissasembled into frequency bands (displayed as spectrograms Fig. \ref{dataset_gen}c)). Based on this time-frequency representation and defect label mapping defect samples are extracted. The same number of non-defect samples are extracted randomly. For 
+The raw vibration snipets are then dissasembled into frequency bands (displayed as spectrograms Fig. \ref{dataset_gen}c)). Based on this time-frequency representation and defect label mapping, defect samples are extracted. The same number of non-defect samples are extracted at random points in time. The samples are a selection of relevant frequency bands which are further down-sampled (Fig. \ref{dataset_gen}d)). Relevance of frequency bands is assesed based on the full context spectrum differentiating defects from non-defects. Each sample is then augmented by 0.03 seconds before and after the designated time.\\
 
-
-including dataset
+\# dataset\\
+The resulting dataset is based on 108 unique context parameter combinations (UPCs). For each UPC three artifical defects are machined and a sample extracted. For each defect sample a non-defect sample is extracted based on random time.
+With a forward/backwards augmentation for each sample the resulting dataset consists of 1944 entries (108 UPCs x 3 defects x2 for each non-defect x 3 for augmentation).
+Each of this 1944 entries consists of 3 types of data:
+\begin{enumerate}
+	\item vibration data in the shape of time-frequency matrix with 32 frequency band channels on the y-axis and 128 time channels on the x-axis which can be rendered as spectrogram
+	\item context data consisting of: $a_e, v_c, f_z, a_{p\%}, d, f_z,$ direction, contact arc, arc direction
+	\item defect label: marking the entry as defect or non-defect
+\end{enumerate}
 
 
 
 \subsection{ML model}
 \vspace*{-\baselineskip}
-üaspdfij
+The 
+
+
 
 \begin{figure}[t]
     \centering
@@ -458,7 +465,7 @@ including dataset
 \begin{note}
 	...and evaluation
 	
-	Dashboard streamlit -> context influence, full data reperesentation
+	Dashboard streamlit -> context influence, full data reperesentation -nope!!
 
 \end{note}
 
@@ -468,15 +475,15 @@ Precision: 0.9929078014184397\\
 Recall: 0.9824561403508771\\
 F1-score: 0.9876543209876543\\
 Confusion Matrix:\\
-[[297   2]\\
- [  5 280]]\\
+297   2\\
+  5 280\\
  
  
  
 %=====================================================================
 \section{Conclusion and outlook}
 \begin{note}
-	and futere recommendation (halbe seite)
+	and future recommendation
 	
 \end{note}
 
